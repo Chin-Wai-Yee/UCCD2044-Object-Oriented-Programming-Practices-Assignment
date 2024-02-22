@@ -6,6 +6,10 @@ public class Product {
 	private int productItemNumber;
 	private boolean productStatus = true;
 	
+	//Default Constructor
+	public Product() {
+		
+	}
 	//Constructor
 	public Product(String productName, double productPrice, int productQuantity, int productItemNumber, boolean productStatus){
 		this.productName = productName;
@@ -57,6 +61,25 @@ public class Product {
 	public double getTotalInventoryValue (){
 		
 		return productPrice*productQuantity;
+	}
+	
+	public void addProductQuantity(int num) {
+		productQuantity += num;
+	}
+	public void deductProductQuantity(int num) {
+		productQuantity -= num;
+	}
+	
+	//override toString
+	@Override 
+	public String toString(){
+		String desc = "Item number	    : " + productItemNumber 
+				+ "\nProduct name	    : " + productName 
+				+ "\nQuantity available  : " + productQuantity 
+				+ "\nPrice (RM)	    : " + productPrice 
+				+ "\nInventory value (RM): " + getTotalInventoryValue()
+				+ "\nProduct status      : " +productStatus;
+		return desc;
 	}
 }
 

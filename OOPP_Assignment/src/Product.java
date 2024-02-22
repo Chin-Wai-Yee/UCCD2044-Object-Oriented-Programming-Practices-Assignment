@@ -33,7 +33,21 @@ public class Product {
 	}
 
 	//Setters 
-	
+	public void setProductName(String ProductName){
+		this.productName = productName;
+	}
+	public void setProductPrice(double productPrice){
+		this.productPrice = productPrice;
 
+	}
+	public void setProductQuantity(int productQuantity){
+		this.productQuantity = productQuantity;
+	}
+	public void setProductItemNumber(int ){
+
+	}
+	public void setProductPrice(){
+
+	}
 }
 

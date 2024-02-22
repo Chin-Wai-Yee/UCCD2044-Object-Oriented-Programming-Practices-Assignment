@@ -43,10 +43,12 @@ public class Product {
 	public void setProductQuantity(int productQuantity){
 		this.productQuantity = productQuantity;
 	}
-	public void setProductItemNumber(int ){
+	public void setProductItemNumber(int productItemNumber ){
+		this.productItemNumber = productItemNumber;
 
 	}
-	public void setProductPrice(){
+	public void setProductStatus(boolean productStatus){
+		this.productStatus = productStatus;
 
 	}
 }

@@ -33,7 +33,7 @@ public class Product {
 	}
 
 	//Setters 
-	public void setProductName(String ProductName){
+	public void setProductName(String productName){
 		this.productName = productName;
 	}
 	public void setProductPrice(double productPrice){
@@ -50,6 +50,13 @@ public class Product {
 	public void setProductStatus(boolean productStatus){
 		this.productStatus = productStatus;
 
+	}
+
+	//new methods 
+
+	public double getTotalInventoryValue (){
+		
+		return productPrice*productQuantity;
 	}
 }
 

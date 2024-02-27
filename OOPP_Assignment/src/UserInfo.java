@@ -31,6 +31,7 @@ public class UserInfo {
 		Scanner userInput =  new Scanner(System.in);
 		System.out.println("Enter a username: ");
 		name = userInput.nextLine();
+		userInput.close();
 	}
 	public void setUserID() {
 

@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 public class StockManagement{
 	public static void main(String[] args) {
 		/*Product pro1 = new Product("Something",1.2,2,123,true);
@@ -9,9 +10,36 @@ public class StockManagement{
 		System.out.println(tv+"\n");*/
 		//UserInfo userInfo = new UserInfo();
 		//System.out.println(userInfo.getUserID());
-		menu();
+		//menu();
 	}
-	public static void menu() {
+	public static boolean checkInt(String line) { 
+        try{
+        	Integer.parseInt(line);
+        	return true;
+        }
+        catch (NumberFormatException ex){
+            System.out.println("Do not use string input. ");
+        }
+        return false; 
+	}
+	//need  to test
+	public static int getMaximum(Scanner input) { 
+		String addValue = input.nextLine();
+		int addVal = -1;
+		if (checkInt(addValue)) { 
+			addVal = Integer.parseInt(addValue);
+		}else {
+			System.out.println("Invalid input");
+		}
+		if (addVal > 0 ) { 
+			return addVal;
+		}else { 
+			System.out.println("Only input positive value");
+		}
+		return addVal;
+	}
+	//Not done yet
+	public static void menu(ArrayList<Product> productArr, Scanner something , int menuChoice) {
 		boolean flag = true; 
 		Scanner input = new Scanner(System.in);
 		do {
@@ -27,19 +55,23 @@ public class StockManagement{
 	            menuInput = Integer.parseInt(parser);
 	        }
 	        catch (NumberFormatException ex){
-	            System.out.println("Invalid input please try again. ");
+	            System.out.println("Do not use string input. ");
 	        }
 			switch(menuInput) {
 			case 0: 
 				flag = false;
 				break;
 			case 1: 
+				viewProduct();
 				break;
 			case 2: 
+				addStock();
 				break;
-			case 3: 
+			case 3:
+				deductStock();
 				break;
 			case 4: 
+				discontinueProd();
 				break;
 			default:
 				System.out.println("Invalid input please try again. ");
@@ -51,5 +83,16 @@ public class StockManagement{
 		}while(flag);
 		//close Scanner
 		input.close();
+	}
+	public static void viewProduct() {
+	} 
+	public static void addStock() {
+		 
+	}
+	public static void deductStock() {
+		 
+	}
+	public static void discontinueProd() { 
+		
 	}
 	}

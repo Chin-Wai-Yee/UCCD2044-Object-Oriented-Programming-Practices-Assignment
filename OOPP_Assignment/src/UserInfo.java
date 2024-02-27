@@ -27,6 +27,7 @@ public class UserInfo {
 		this.userID = userID;
 	}
 	//New methods
+	//Overload function 
 	public void setName() {
 		Scanner userInput =  new Scanner(System.in);
 		System.out.println("Enter a username: ");

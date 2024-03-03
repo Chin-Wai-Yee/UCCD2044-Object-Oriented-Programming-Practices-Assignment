@@ -1,7 +1,7 @@
 public class TV extends Product {
     private String screenType;
-    private int resolution;
-    private int displaySize;
+    private int resolution;//idk this should be int or double
+    private int displaySize;//idk this should be int or double
 
     // Default constructor
     public TV() {
@@ -13,7 +13,7 @@ public class TV extends Product {
         super(productName, productPrice, productQuantity, productItemNumber, productStatus);
         this.screenType = screenType;
         this.resolution = resolution;
-        this.displaySize = displaySize;
+        this.displaySize = displaySize; 
     }
 
     // Getters

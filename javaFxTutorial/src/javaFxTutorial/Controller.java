@@ -1,16 +1,16 @@
 package javaFxTutorial;
 import javafx.event.ActionEvent;
-public class Controller {
-	public void up(ActionEvent e) {
-		System.out.println("UP");
-	}
-	public void left(ActionEvent e) {
-		System.out.println("LEFT");
-	}
-	public void right(ActionEvent e) {
-		System.out.println("RIGHT");
-	}
-	public void down(ActionEvent e) {
-		System.out.println("DOWN");
+import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+public class Controller{
+	@FXML
+	private	AnchorPane mainPane;
+	public void handleMenuExitButton(ActionEvent e) {
+
+		Stage stage = (Stage) mainPane.getScene().getWindow();
+		stage.close();
+		
 	}
 }

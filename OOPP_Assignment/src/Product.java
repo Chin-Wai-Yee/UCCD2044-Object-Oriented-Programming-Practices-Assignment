@@ -1,5 +1,5 @@
 
-public class Product {
+public abstract class Product {
 	private String productName;
 	private double productPrice;
 	private int productQuantity;
@@ -73,12 +73,14 @@ public class Product {
 	//override toString
 	@Override 
 	public String toString(){
-		String desc = "Item number	    : " + productItemNumber 
-				+ "\nProduct name	    : " + productName 
+		String desc = 
+				  "Item number	         : " + productItemNumber 
+				+ "\nProduct name	     : " + productName 
 				+ "\nQuantity available  : " + productQuantity 
-				+ "\nPrice (RM)	    : " + productPrice 
+				+ "\nPrice (RM)	        : " + productPrice 
 				+ "\nInventory value (RM): " + getTotalInventoryValue()
 				+ "\nProduct status      : " +productStatus;
+
 		return desc;
 	}
 }

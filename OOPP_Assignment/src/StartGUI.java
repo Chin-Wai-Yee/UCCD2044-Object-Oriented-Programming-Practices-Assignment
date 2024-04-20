@@ -5,12 +5,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class MenuUI extends Application {
+public class StartGUI extends Application {
 	@Override
-	public void start(Stage  primaryStage) {
+	public void start(Stage primaryStage) {
 		try{
-		Parent root  =  FXMLLoader.load(getClass().getResource("MenuUI.fxml")); 
-		primaryStage.setTitle("Tutorial");
+		Parent root  =  FXMLLoader.load(getClass().getResource("LoginUI.fxml")); 
+		primaryStage.setTitle("Stock Management System");
 		primaryStage.setScene(new Scene(root));
 
 		primaryStage.show();

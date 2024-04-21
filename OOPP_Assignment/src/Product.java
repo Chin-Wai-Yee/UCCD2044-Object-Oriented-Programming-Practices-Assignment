@@ -70,6 +70,10 @@ public abstract class Product {
 		productQuantity -= num;
 	}
 	
+	public String getDetails() {
+		return "";
+	}
+	
 	//override toString
 	@Override 
 	public String toString(){

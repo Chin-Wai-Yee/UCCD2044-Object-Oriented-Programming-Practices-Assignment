@@ -36,6 +36,13 @@ public class Oven extends Product{
 	public void setHasTimer(boolean hasTimer) {
 		this.hasTimer = hasTimer;
 	}
+	
+	@Override
+	public String getDetails() {
+    	String desc = "Glass Door Design: " + glassDoorDesign + " Convection heating: " + hasConvection + " Built-in Timer: " + hasTimer;
+    	return (desc);
+    }
+	
 	@Override
     public String toString() {
         String desc = super.toString() +
@@ -45,4 +52,3 @@ public class Oven extends Product{
         return desc;
     }
 }
-

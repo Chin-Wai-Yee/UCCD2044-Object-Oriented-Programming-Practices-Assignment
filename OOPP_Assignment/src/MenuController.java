@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class MenuController{
@@ -17,7 +16,7 @@ public class MenuController{
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
-	private UserInfo user = new UserInfo("","");
+	private UserInfo user = new UserInfo("","");//instantiate
 	public void setUserInfo(UserInfo user) {
 
 	    this.user.setName(user.getName());

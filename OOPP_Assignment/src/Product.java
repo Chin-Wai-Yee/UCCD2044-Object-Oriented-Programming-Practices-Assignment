@@ -69,7 +69,9 @@ public abstract class Product {
 	public void deductProductQuantity(int num) {
 		productQuantity -= num;
 	}
-	
+	public String getDetails() {
+		return "";
+	}
 	//override toString
 	@Override 
 	public String toString(){

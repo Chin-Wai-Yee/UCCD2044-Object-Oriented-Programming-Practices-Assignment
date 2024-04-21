@@ -43,15 +43,10 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="188.0" prefWidth="259.0" style="-fx-background-color: #CDCDCD;" text="Add Products">
-               <graphic>
-                  <ImageView fitHeight="65.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Images/incoming.png" />
-                     </image></ImageView>
-               </graphic>
-            </Button>
-            <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="188.0" prefWidth="259.0" style="-fx-background-color: #CDCDCD;" text="View Products" GridPane.columnIndex="1">
+
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleStatisticButton" prefHeight="188.0" prefWidth="259.0" style="-fx-background-color: #CDCDCD;" text="Show Statistic" />
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleViewButton" prefHeight="188.0" prefWidth="259.0" style="-fx-background-color: #CDCDCD;" text="View Products" GridPane.columnIndex="1">
+
                <graphic>
                   <ImageView fitHeight="65.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -60,16 +55,8 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="188.0" prefWidth="259.0" style="-fx-background-color: #CDCDCD;" text="Add Products">
-               <graphic>
-                  <ImageView fitHeight="65.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Images/incoming.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="188.0" prefWidth="259.0" style="-fx-background-color: #CDCDCD;" text="Add Stocks" GridPane.columnIndex="2">
+
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleAddStockButton" prefHeight="188.0" prefWidth="259.0" style="-fx-background-color: #CDCDCD;" text="Add Stocks" GridPane.columnIndex="2">
                <graphic>
                   <ImageView fitHeight="65.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -78,7 +65,9 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="188.0" prefWidth="259.0" style="-fx-background-color: #CDCDCD;" text="Deduct Stocks" GridPane.rowIndex="1">
+
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleDeductStockButton" prefHeight="188.0" prefWidth="259.0" style="-fx-background-color: #CDCDCD;" text="Deduct Stocks" GridPane.rowIndex="1">
+
                <graphic>
                   <ImageView fitHeight="65.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -87,7 +76,9 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="188.0" prefWidth="259.0" style="-fx-background-color: #CDCDCD;" text="Discontinue Products" GridPane.columnIndex="1" GridPane.rowIndex="1">
+
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleDiscontinueButton" prefHeight="188.0" prefWidth="259.0" style="-fx-background-color: #CDCDCD;" text="Discontinue Products" GridPane.columnIndex="1" GridPane.rowIndex="1">
+
                <graphic>
                   <ImageView fitHeight="65.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
                      <image>

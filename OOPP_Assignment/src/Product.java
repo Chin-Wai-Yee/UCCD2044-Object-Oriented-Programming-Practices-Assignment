@@ -1,11 +1,9 @@
-
 public abstract class Product {
 	private String productName;
 	private double productPrice;
 	private int productQuantity;
 	private int productItemNumber;
 	private boolean productStatus = true;
-	
 	//Default Constructor
 	public Product() {
 		
@@ -59,7 +57,7 @@ public abstract class Product {
 	//new methods 
 
 	public double getTotalInventoryValue (){
-		
+
 		return productPrice*productQuantity;
 	}
 	

@@ -1,9 +1,13 @@
-import java.util.Scanner;
 import java.util.ArrayList;
-public class StockManagement {
+import java.util.Scanner;
+
+import javafx.application.Platform;
+public class StockManagement{
+	
     private static Scanner scanner = new Scanner(System.in);
     private static int productTotalNumber = 0; //increase by 1 when add 1 products
     private static int productMaxNumber;
+
     public static int getMaxProducts(Scanner scanner) {
         int maxProducts;
         do {
@@ -21,7 +25,9 @@ public class StockManagement {
     }
 
     public static int displayProducts(ArrayList<Product> products, Scanner scanner) {
-
+        if(products.isEmpty()) {
+        	return -1;
+        }
         System.out.println("Products:");
         for (int i = 0; i < products.size(); i++) {
             System.out.println((i+1) + ". " + products.get(i).getProductName());
@@ -50,6 +56,7 @@ public class StockManagement {
             System.out.println("2. Add stock");
             System.out.println("3. Deduct stock");
             System.out.println("4. Discontinue product");
+            System.out.println("5. Show statistic");
             System.out.println("0. Exit");
             System.out.print("Please enter a menu option: ");
             while (!scanner.hasNextInt()) {
@@ -58,15 +65,19 @@ public class StockManagement {
                 scanner.next();
             }
             choice = scanner.nextInt();
-            if (choice < 0 || choice > 4) {
+            if (choice < 0 || choice > 5) {
                 System.out.println("Please enter a valid menu option.");
             }
-        } while (choice < 0 || choice > 4);
+        } while (choice < 0 || choice > 5);
         return choice;
     }
 
     public static void addStock(ArrayList<Product> products, Scanner scanner) {
         int choice = displayProducts(products, scanner);
+        if (choice ==  -1) {
+        	System.out.println("No product added in this system");
+        	return;
+        }
         System.out.print("Enter the quantity to add: ");
         int quantityToAdd;
         do {
@@ -85,6 +96,10 @@ public class StockManagement {
 
     public static void deductStock(ArrayList<Product> products, Scanner scanner) {
         int choice = displayProducts(products, scanner);
+        if (choice ==  -1) {
+        	System.out.println("No product added in this system");
+        	return;
+        }
         System.out.print("Enter the quantity to deduct: ");
         int quantityToDeduct;
         do {
@@ -103,6 +118,10 @@ public class StockManagement {
 
     public static void discontinueProduct(ArrayList<Product> products, Scanner scanner) {
         int choice = displayProducts(products, scanner);
+        if (choice ==  -1) {
+        	System.out.println("No product added in this system");
+        	return;
+        }
         products.get(choice-1).setProductStatus(false);
 
         System.out.println("Product discontinued successfully.");
@@ -122,10 +141,55 @@ public class StockManagement {
             case 4:
                 discontinueProduct(products, scanner);
                 break;
+            case 5:
+            	showStatistic(products,scanner);
             case 0:
                 System.out.println("Exiting...");
                 break;
         }
+    }
+    public static void showStatistic(ArrayList<Product> products,Scanner scanner) {
+    	int ovenNum = 0;
+    	int washNum = 0;
+    	int fridgeNum = 0; 
+    	int TVNum  = 0;
+    	double ovenIntValue = 0;
+    	double washIntValue = 0;
+    	double fridgeIntValue = 0; 
+    	double TVIntValue  = 0;
+    	double totalValue=0;
+		for(Product product:products) {
+			if (product instanceof Oven) {
+				ovenNum+=product.getProductQuantity();
+				ovenIntValue += product.getTotalInventoryValue();
+			}
+			if (product instanceof WashingMachine) {
+				washNum+=product.getProductQuantity();
+				washIntValue += product.getTotalInventoryValue();
+			}
+			if (product instanceof Refrigerator) {
+				fridgeNum+=product.getProductQuantity();
+				fridgeIntValue += product.getTotalInventoryValue();
+			}
+			if (product instanceof TV) {
+				TVNum+=product.getProductQuantity();
+				TVIntValue += product.getTotalInventoryValue();
+			}
+			totalValue += product.getTotalInventoryValue();
+			
+		}
+        System.out.println("Product\t\tQuantity\tValue\t\tPercentage of Inventory Value");
+        System.out.printf("%-15s  %-15d %-20.2f %-10.2f %n","Oven",ovenNum,ovenIntValue,ovenIntValue/totalValue);
+        System.out.printf("%-15s  %-15d %-20.2f %-10.2f %n","Washing Machine",washNum,washIntValue,washIntValue/totalValue);
+        System.out.printf("%-15s  %-15d %-20.2f %-10.2f %n","Refridgerator",fridgeNum,fridgeIntValue,fridgeIntValue/totalValue);
+        System.out.printf("%-15s  %-15d %-20.2f %-10.2f %n","TV",TVNum,TVIntValue,TVIntValue/totalValue);
+
+        System.out.println("----------------------------------------------------------");
+
+        System.out.println("Press any key to go back");
+
+        scanner.nextLine(); // Consume the newline character from previous input
+        scanner.nextLine();
     }
 
     public static void addProduct(ArrayList<Product> products, Scanner scanner) {
@@ -642,6 +706,7 @@ public class StockManagement {
 	
     public static void main(String[] args) {
         //Product[] products = new Product[maxProducts];
+
         ArrayList<Product> products = new ArrayList<Product>();
         int choice;
         productMaxNumber= getMaxProducts(scanner);
@@ -649,9 +714,11 @@ public class StockManagement {
             choice = displayMenu(scanner);
             if(choice!=0) {
             	executeMethod(choice, products, scanner);
+
             }
         } while (choice != 0);
-        System.out.println("Dear user.....thank you for using our prorgam");
+    	
+        System.out.println("Dear user.....thank you for using our program");
         System.out.println("Have a nice day ^-^");
         scanner.close(); // Close the scanner
     }

@@ -37,9 +37,15 @@ public class WashingMachine extends Product{
 		this.noiceLevel = noiceLevel;
 	}
 	@Override
+	public String getDetails() {
+    	String desc = "Capacity (kg): " + capacityKg + " Built-in dryer: " + hasDryer + " Noice Level: " + noiceLevel;
+    	return (desc);
+    }
+	
+	@Override
     public String toString() {
         String desc = super.toString() +
-                "\nCapacity (KG)            : " + capacityKg +
+                "\nCapacity (kg)            : " + capacityKg +
                 "\nBuilt-in Dryer           : " + hasDryer +
                 "\nNoice Level              : " + noiceLevel;
         return desc;

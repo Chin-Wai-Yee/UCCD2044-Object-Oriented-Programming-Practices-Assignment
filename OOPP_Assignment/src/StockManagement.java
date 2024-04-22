@@ -61,7 +61,9 @@ public class StockManagement{
             System.out.print("Please enter a menu option: ");
             while (!scanner.hasNextInt()) {
                 System.out.println("Please enter a valid menu option.");
+
                 System.out.print("Please enter a menu option: ");
+
                 scanner.next();
             }
             choice = scanner.nextInt();
@@ -130,7 +132,9 @@ public class StockManagement{
     public static void executeMethod(int choice,ArrayList<Product> products, Scanner scanner) {
         switch (choice) {
             case 1:
+
                 displayProductMenu(products,scanner);
+
                 break;
             case 2:
                 addStock(products, scanner);
@@ -198,6 +202,7 @@ public class StockManagement{
         System.out.println("2. TV");
         System.out.println("3. Oven");
         System.out.println("4. Washing Machine");
+
         int choice;
         do {
             System.out.print("Enter your choice: ");
@@ -206,6 +211,7 @@ public class StockManagement{
                 scanner.next();
             }
             choice = scanner.nextInt();
+
             if (choice < 1 || choice > 4) {
                 System.out.println("Only numbers 1 to 4 allowed!");
             }
@@ -227,6 +233,7 @@ public class StockManagement{
 
     public static void addRefrigerator(ArrayList<Product>products, Scanner scanner) {
 		int value=-1,itemNumber;
+
         scanner.nextLine(); // Consume newline character
         System.out.print("Enter name: ");
         String name = scanner.nextLine();
@@ -236,6 +243,7 @@ public class StockManagement{
         String color = scanner.nextLine();
         System.out.print("Enter capacity: ");
         int capacity = scanner.nextInt();
+
 //        System.out.print("Enter quantity available in stock: ");
 //        int quantity = scanner.nextInt();
         System.out.print("Enter price: ");
@@ -252,11 +260,14 @@ public class StockManagement{
         //String productName, double productPrice, int productQuantity, int productItemNumber, boolean productStatus, String doorDesign, String color, double capacity
         products.add(new Refrigerator(name,price, 0, itemNumber,true, doorDesign, color, capacity));
         productTotalNumber++;
+
         System.out.println("Refrigerator added successfully.");
     }
 
     public static void addTV(ArrayList<Product> products, Scanner scanner) {
+
     	int value,itemNumber;
+
         scanner.nextLine(); // Consume newline character
         System.out.print("Enter name: ");
         String name = scanner.nextLine();
@@ -266,6 +277,7 @@ public class StockManagement{
         int resolution = scanner.nextInt();
         System.out.print("Enter display size: ");
         int displaySize = scanner.nextInt();
+
 //      System.out.print("Enter quantity available in stock: ");
 //      int quantity = scanner.nextInt();
         System.out.print("Enter price: ");
@@ -721,5 +733,6 @@ public class StockManagement{
         System.out.println("Dear user.....thank you for using our program");
         System.out.println("Have a nice day ^-^");
         scanner.close(); // Close the scanner
+
     }
 }

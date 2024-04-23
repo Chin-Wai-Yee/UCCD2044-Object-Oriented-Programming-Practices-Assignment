@@ -88,55 +88,85 @@ public class AddProductController {
 	}
 
 	@FXML
-	void handleMouseEnter(MouseEvent event) {
-	    	
+	void handleMouseEnter(MouseEvent event) {    	
 	}
 
 	@FXML
 	void handleMouseExit(MouseEvent event) {
-
 	}
 
     @FXML
     void handleRefriEvent(ActionEvent event) {
-    	label1.setText("Product Number :");
+    	label1.setText("Product Number : ");
     	label2.setText("Product Name : ");
     	label3.setText("Product Price : ");
     	label4.setText("Door Design : ");
     	label5.setText("Color : ");
     	label6.setText("Capacity(Litres) : ");
+    	
+    	textField1.setPromptText("1234");
+    	textField2.setPromptText("samsung refri");
+    	textField3.setPromptText("1000.11");
+    	textField4.setPromptText("dual glass door");
+    	textField5.setPromptText("blue");
+    	textField6.setPromptText("10.2");
+
     	targetProduct=1;
     }
     @FXML
     void handleTVEvent(ActionEvent event) {
-    	label1.setText("Product Number :");
+    	label1.setText("Product Number : ");
     	label2.setText("Product Name : ");
     	label3.setText("Product Price : ");
     	label4.setText("Screen Type : ");
     	label5.setText("Resolution : ");
     	label6.setText("Display Size : ");
+    	
+    	textField1.setPromptText("1234");
+    	textField2.setPromptText("samsung refri");
+    	textField3.setPromptText("1000.11");
+    	textField4.setPromptText("OLED");
+    	textField5.setPromptText("1080");
+    	textField6.setPromptText("81");
+    	
     	targetProduct=2;
     }
     @FXML
     void handleOvenEvent(ActionEvent event) {
-    	label1.setText("Product Number :");
+    	label1.setText("Product Number : ");
     	label2.setText("Product Name : ");
     	label3.setText("Product Price : ");
     	label4.setText("Glass Door Design : ");
     	label5.setText("Convection Heating : ");
     	label6.setText("Built-in Timer : ");
+    	
+    	textField1.setPromptText("1234");
+    	textField2.setPromptText("samsung refri");
+    	textField3.setPromptText("1000.11");
+    	textField4.setPromptText("tempered-glass door");
+    	textField5.setPromptText("true/false");
+    	textField6.setPromptText("true/false");
+    	
     	targetProduct=3;
     }
 
 
     @FXML
     void handleWashingMachineEvent(ActionEvent event) {
-    	label1.setText("Product Number :");
+    	label1.setText("Product Number : ");
     	label2.setText("Product Name : ");
     	label3.setText("Product Price : ");
     	label4.setText("Capacity(Kg) : ");
     	label5.setText("Built-in Dryer : ");
     	label6.setText("Noice Level : ");
+    	
+    	textField1.setPromptText("1234");
+    	textField2.setPromptText("samsung refri");
+    	textField3.setPromptText("1000.11");
+    	textField4.setPromptText("10");
+    	textField5.setPromptText("true/false");
+    	textField6.setPromptText("low/medium/high");
+    	
     	targetProduct=4;
     }
 

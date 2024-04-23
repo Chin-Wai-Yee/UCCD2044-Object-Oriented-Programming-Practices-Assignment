@@ -42,7 +42,8 @@ public class ViewController{
 
     @FXML
     private TableColumn<Product, String> details;
-	public void switchScene(ActionEvent e, String fxmlFile) throws IOException {
+	
+    public void switchScene(ActionEvent e, String fxmlFile) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
 		root  = loader.load();
 		stage = (Stage)((Node)e.getSource()).getScene().getWindow();
@@ -68,14 +69,11 @@ public class ViewController{
 	}
 	
 	public void initialize() {
-
-
 //		SharedList pal = new SharedList();
 //        Product n1 = new Refrigerator("Samsung refri", 9999, 0, 1, true, "dual glass", "black", 12);
 //        Product n2 = new WashingMachine("Samsung wash", 999, 0, 2, true, 10, true, "low");
 //        pal.addProducts(n1);
 //        pal.addProducts(n2);
-        
         SharedList pl = new SharedList();
 		ArrayList<Product> products = pl.getProductList();
 		//ObservableList<Product> product = FXCollections.observableArrayList(products);
@@ -87,10 +85,7 @@ public class ViewController{
         productPrice.setCellValueFactory(new PropertyValueFactory<>("productPrice"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("productQuantity"));
         status.setCellValueFactory(new PropertyValueFactory<>("productStatus"));
-        details.setCellValueFactory(new PropertyValueFactory<>("details"));
-	    
-        
-        
+        details.setCellValueFactory(new PropertyValueFactory<>("details")); 
         productTableView.getItems().addAll(products);
 
     }

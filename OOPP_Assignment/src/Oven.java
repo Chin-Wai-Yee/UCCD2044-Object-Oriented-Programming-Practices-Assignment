@@ -39,7 +39,7 @@ public class Oven extends Product{
 	
 	@Override
 	public String getDetails() {
-    	String desc = "Glass Door Design: " + glassDoorDesign + " Convection heating: " + hasConvection + " Built-in Timer: " + hasTimer;
+    	String desc = "Oven >>" + "Glass Door Design: " + glassDoorDesign + " Convection heating: " + hasConvection + " Built-in Timer: " + hasTimer;
     	return (desc);
     }
 	

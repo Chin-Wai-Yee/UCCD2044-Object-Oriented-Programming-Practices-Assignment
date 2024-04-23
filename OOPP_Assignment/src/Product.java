@@ -62,10 +62,17 @@ public abstract class Product {
 	}
 	
 	public void addProductQuantity(int num) {
-		productQuantity += num;
+		if(productStatus) {productQuantity += num;
+		}
+		else {
+			System.out.println("Product is discontinued");
+		}
 	}
 	public void deductProductQuantity(int num) {
-		productQuantity -= num;
+		if(productStatus) {productQuantity -= num;}
+		else {
+			System.out.println("Product is discontinued");
+		}
 	}
 
 	public String getDetails() {

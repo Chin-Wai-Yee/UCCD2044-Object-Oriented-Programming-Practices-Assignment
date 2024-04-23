@@ -41,13 +41,7 @@ public class StatisticController implements Initializable{
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		comboBox.setItems(FXCollections.observableArrayList("Quantity","Inventory Value"));
-		ArrayList<Product> temp = new ArrayList<Product>();
-		temp.add(new Oven("Oven1", 299.99, 1, 101, true, "Clear", true, true));
-        //temp.add(new Oven("Oven2", 349.99, 1, 102, true, "Tinted", true, true));
-       // temp.add(new Oven("Oven3", 399.99, 1, 103, true, "Clear", false, true));
-       // temp.add(new Oven("Oven4", 449.99, 1, 104, true, "Tinted", false, false));
-       // temp.add(new Oven("Oven5", 499.99, 1, 105, true, "Clear", true, false));
-		setArray(temp);
+		setArray(new SharedList().getProductList());
 		
 		
 	}

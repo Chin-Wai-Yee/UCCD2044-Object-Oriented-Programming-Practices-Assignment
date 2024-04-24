@@ -67,15 +67,16 @@ public class StockManagement {
 
     public static void addStock(ArrayList<Product> products, Scanner scanner) {
         int choice = displayProducts(products, scanner);
-        System.out.print("Enter the quantity to add: ");
         int quantityToAdd;
         do {
-        	quantityToAdd=getIntInput("Please enter a valid quantity.",INTEGER_REGEX,scanner);
+            quantityToAdd = getIntInput("Enter the quantity to add: ", INTEGER_REGEX, scanner);
             if (quantityToAdd <= 0) {
                 System.out.println("Please enter a positive value.");
             }
         } while (quantityToAdd <= 0);
-        products.get(choice).setProductQuantity(products.get(choice).getProductQuantity() + quantityToAdd);
+        choice -= 1;
+        products.get(choice)
+                .setProductQuantity(products.get(choice).getProductQuantity() + quantityToAdd);
         System.out.println("Stock added successfully.");
     }
 
@@ -83,12 +84,14 @@ public class StockManagement {
         int choice = displayProducts(products, scanner);
         int quantityToDeduct;
         do {
-        	quantityToDeduct=getIntInput("Enter the quantity to deduct: ",INTEGER_REGEX,scanner);
+            quantityToDeduct = getIntInput("Enter the quantity to deduct: ", INTEGER_REGEX, scanner);
             if (quantityToDeduct <= 0 || quantityToDeduct > products.get(choice).getProductQuantity()) {
                 System.out.println("Please enter a valid quantity.");
             }
         } while (quantityToDeduct <= 0 || quantityToDeduct > products.get(choice).getProductQuantity());
-        products.get(choice).setProductQuantity(products.get(choice).getProductQuantity() - quantityToDeduct);
+        choice -= 1;
+        products.get(choice)
+                .setProductQuantity(products.get(choice).getProductQuantity() - quantityToDeduct);
         System.out.println("Stock deducted successfully.");
     }
 

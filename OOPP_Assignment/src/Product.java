@@ -1,11 +1,9 @@
-
 public abstract class Product {
 	private String productName;
 	private double productPrice;
 	private int productQuantity;
 	private int productItemNumber;
 	private boolean productStatus = true;
-	
 	//Default Constructor
 	public Product() {
 
@@ -59,17 +57,24 @@ public abstract class Product {
 	//new methods 
 
 	public double getTotalInventoryValue (){
-		
+
 		return productPrice*productQuantity;
 	}
 	
 	public void addProductQuantity(int num) {
-		productQuantity += num;
+		if(productStatus) {productQuantity += num;
+		}
+		else {
+			System.out.println("Product is discontinued");
+		}
 	}
 	public void deductProductQuantity(int num) {
-		productQuantity -= num;
+		if(productStatus) {productQuantity -= num;}
+		else {
+			System.out.println("Product is discontinued");
+		}
 	}
-	
+
 	public String getDetails() {
 		return "";
 	}

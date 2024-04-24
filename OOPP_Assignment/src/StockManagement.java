@@ -33,6 +33,9 @@ public class StockManagement {
     }
     
     public static int displayProducts(ArrayList<Product> products, Scanner scanner) {
+        if(products.isEmpty()) {
+        	return -1;
+        }
         System.out.println("Products:");
         for (int i = 0; i < products.size(); i++) {
             System.out.println((i+1) + ". " + products.get(i).getProductName());
@@ -56,17 +59,30 @@ public class StockManagement {
             System.out.println("2. Add stock");
             System.out.println("3. Deduct stock");
             System.out.println("4. Discontinue product");
-            System.out.println("0. Exit");            
-            choice=getIntInput("Please enter a menu option: ",INTEGER_REGEX,scanner);
-            if (choice < 0 || choice > 4) {
+            System.out.println("5. Show statistic");
+            System.out.println("0. Exit");
+            System.out.print("Please enter a menu option: ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Please enter a valid menu option.");
+
+                System.out.print("Please enter a menu option: ");
+
+                scanner.next();
+            }
+            choice = scanner.nextInt();
+            if (choice < 0 || choice > 5) {
                 System.out.println("Please enter a valid menu option.");
             }
-        } while (choice < 0 || choice > 4);
+        } while (choice < 0 || choice > 5);
         return choice;
     }
 
     public static void addStock(ArrayList<Product> products, Scanner scanner) {
         int choice = displayProducts(products, scanner);
+        if (choice ==  -1) {
+        	System.out.println("No product added in this system");
+        	return;
+        }
         int quantityToAdd;
         do {
             quantityToAdd = getIntInput("Enter the quantity to add: ", INTEGER_REGEX, scanner);
@@ -82,6 +98,11 @@ public class StockManagement {
 
     public static void deductStock(ArrayList<Product> products, Scanner scanner) {
         int choice = displayProducts(products, scanner);
+        if (choice ==  -1) {
+        	System.out.println("No product added in this system");
+        	return;
+        }
+        System.out.print("Enter the quantity to deduct: ");
         int quantityToDeduct;
         do {
             quantityToDeduct = getIntInput("Enter the quantity to deduct: ", INTEGER_REGEX, scanner);
@@ -97,6 +118,10 @@ public class StockManagement {
 
     public static void discontinueProduct(ArrayList<Product> products, Scanner scanner) {
         int choice = displayProducts(products, scanner);
+        if (choice ==  -1) {
+        	System.out.println("No product added in this system");
+        	return;
+        }
         products.get(choice-1).setProductStatus(false);
         System.out.println("Product discontinued successfully.");
     }
@@ -104,7 +129,9 @@ public class StockManagement {
     public static void executeMethod(int choice,ArrayList<Product> products, Scanner scanner) {
         switch (choice) {
             case 1:
+
                 displayProductMenu(products,scanner);
+
                 break;
             case 2:
                 addStock(products, scanner);
@@ -117,7 +144,6 @@ public class StockManagement {
                 break;
             case 5:
             	showStatistic(products,scanner);
-            	break;
             case 0:
                 System.out.println("Exiting...");
                 break;
@@ -166,12 +192,14 @@ public class StockManagement {
         scanner.nextLine(); // Consume the newline character from previous input
         scanner.nextLine();
     }
+
     public static void addProduct(ArrayList<Product> products, Scanner scanner) {
         System.out.println("Add product:");
         System.out.println("1. Refrigerator");
         System.out.println("2. TV");
         System.out.println("3. Oven");
         System.out.println("4. Washing Machine");
+
         int choice;
         do {
         	choice=getIntInput("Enter your choice: ",INTEGER_REGEX,scanner);
@@ -599,6 +627,7 @@ public class StockManagement {
 	
     public static void main(String[] args) {
         //Product[] products = new Product[maxProducts];
+
         ArrayList<Product> products = new ArrayList<Product>();
         int choice;
         productMaxNumber= getMaxProducts(scanner);

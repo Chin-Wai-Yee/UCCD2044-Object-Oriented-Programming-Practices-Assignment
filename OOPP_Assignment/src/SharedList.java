@@ -25,7 +25,9 @@ public class SharedList {
 	public void updateProduct(int itemNumber, Product product) {
 		sharedProduct.set(itemNumber,product);
 	}
-	
+	public void deleteProduct(int itemNumber) {
+		sharedProduct.remove(itemNumber);
+	}
 	public int checkItemNumber(int itemNumber) {
 		int value = -1;
 		for (int i=0;i<sharedProduct.size();i++) {

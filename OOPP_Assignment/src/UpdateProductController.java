@@ -101,26 +101,28 @@ public class UpdateProductController {
 		stage.show();
 	}
 	@FXML
-	void handleBackMenuButton(ActionEvent e) throws IOException {
-		switchScene(e,"ViewUI.fxml");
+	void handleBackMenuButton(ActionEvent event) throws IOException {
+		switchScene(event,"ViewUI.fxml");
 	}
 
 	@FXML
-    public void handleConfirmEvent(ActionEvent e) throws IOException {
+    public void handleConfirmEvent(ActionEvent event) throws IOException {
 
 		if(textField1.getText().isEmpty()) {
 			Alert fail= new Alert(AlertType.INFORMATION);
-			fail.setHeaderText("Please input the id");
-			fail.setContentText("id cannot be empty");
+			fail.setTitle("No ID detected");
+			fail.setContentText("Please input the id");
 			fail.showAndWait();
+			return; //will not run the code below
 		}
 		else if(productLoc==-1) {
 			Alert fail= new Alert(AlertType.INFORMATION);
-			fail.setHeaderText("id not found");
-			fail.setContentText("please ensure your id is correct to confirm");
+			fail.setTitle("ID Input error");
+			fail.setContentText("Please ensure your id is correct to confirm");
 			fail.showAndWait();
+			return; //will not run the code below
 		}
-		else {
+		try {
 			int loc=productLoc;
 			SharedList pal = new SharedList();
 			Product temp=pal.getProduct(loc);
@@ -181,9 +183,25 @@ public class UpdateProductController {
 			alert.setTitle("Product Updating");
 			alert.setHeaderText("dear user...Successfully update the product");
 			if(alert.showAndWait().get()==ButtonType.OK) {
-				switchScene(e,"ViewUI.fxml");
+				switchScene(event,"ViewUI.fxml");
 			}	
-		}
+		}catch(NumberFormatException e) {
+    		// Handle the case when a number format exception occurs
+    		Alert alert = new Alert(AlertType.ERROR);
+    	 	alert.setTitle("Input Error");
+    	    alert.setHeaderText(null);
+    	    alert.setContentText("Please enter a valid number for numeric fields.");
+    	    alert.showAndWait();
+            return;
+        }catch (Exception e) {
+    		Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter valid values for all fields.");
+            alert.showAndWait();
+            return;
+    	}
+		
     }
 
     @FXML
@@ -215,6 +233,7 @@ public class UpdateProductController {
     	textField4.setVisible(false);
     	textField5.setVisible(false);
     	textField6.setVisible(false);
+    	productLoc=-1;//reset the location of product
 
     }
 

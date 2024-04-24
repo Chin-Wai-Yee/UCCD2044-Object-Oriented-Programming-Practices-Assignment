@@ -25,10 +25,10 @@
             </Label>
             <ImageView fitHeight="119.0" fitWidth="99.0" layoutX="32.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Images/icons8-snowflake-100.png" />
+                  <Image url="@../../OOPP/src/Images/icons8-snowflake-100.png" />
                </image>
             </ImageView>
-            <Label fx:id="DateTimeLabel" layoutX="566.0" layoutY="95.0" prefHeight="25.0" prefWidth="215.0" textAlignment="CENTER" />
+            <Label fx:id="DateTimeLabel" layoutX="566.0" layoutY="94.0" prefHeight="25.0" prefWidth="220.0" textAlignment="CENTER" />
          </children>
       </Pane>
       <Label layoutX="131.0" layoutY="161.0" prefHeight="99.0" prefWidth="539.0" text="Welcome To Login Menu" textAlignment="CENTER">
@@ -36,10 +36,8 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <TextField fx:id="nameTextField" layoutX="376.0" layoutY="276.0" onAction="#switchToMenu" />
-      <Label layoutX="279.0" layoutY="276.0" prefHeight="25.0" prefWidth="89.0" text="Enter name:" textAlignment="CENTER" />
-      <Button layoutX="322.0" layoutY="382.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="25.0" prefWidth="89.0" text="Login" />
-      <TextField fx:id="maximumQuantity" layoutX="378.0" layoutY="324.0" />
-      <Label layoutX="111.0" layoutY="326.0" prefHeight="25.0" prefWidth="248.0" text="Enter maximum quantity of products:" textAlignment="CENTER" />
+      <TextField fx:id="nameTextField" layoutX="326.0" layoutY="288.0" onAction="#switchToMenu" />
+      <Label layoutX="229.0" layoutY="288.0" prefHeight="25.0" prefWidth="89.0" text="Enter name:" textAlignment="CENTER" />
+      <Button layoutX="356.0" layoutY="350.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="25.0" prefWidth="89.0" text="Login" />
    </children>
 </AnchorPane>

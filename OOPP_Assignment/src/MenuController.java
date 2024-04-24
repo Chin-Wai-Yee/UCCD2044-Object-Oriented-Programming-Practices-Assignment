@@ -17,7 +17,7 @@ public class MenuController{
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
-	private UserInfo user = new UserInfo("","");
+	private UserInfo user = new UserInfo("","");//instantiate
 	public void setUserInfo(UserInfo user) {
 
 	    this.user.setName(user.getName());

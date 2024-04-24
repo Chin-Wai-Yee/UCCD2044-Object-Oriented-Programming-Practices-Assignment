@@ -42,8 +42,13 @@ public class TV extends Product {
         this.displaySize = displaySize;
     }
 
-    // New methods
-
+    // get the details
+    @Override
+    public String getDetails() {
+    	String desc = "TV >> " + "Screen Type: " + screenType + " Resolution (pixels): " + resolution + " Display size: " + displaySize;
+    	return (desc);
+    }
+    
     // Override toString method
     @Override
     public String toString() {

@@ -6,7 +6,7 @@ public abstract class Product {
 	private boolean productStatus = true;
 	//Default Constructor
 	public Product() {
-		
+
 	}
 	//Constructor
 	public Product(String productName, double productPrice, int productQuantity, int productItemNumber, boolean productStatus){
@@ -78,7 +78,7 @@ public abstract class Product {
 	public String getDetails() {
 		return "";
 	}
-
+	
 	//override toString
 	@Override 
 	public String toString(){

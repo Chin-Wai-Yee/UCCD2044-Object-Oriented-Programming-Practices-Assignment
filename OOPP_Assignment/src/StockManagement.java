@@ -31,7 +31,7 @@ public class StockManagement {
         } while (maxProducts <= 0);
         System.out.println("Nice to meet you..." + name);        return maxProducts;
     }
-
+    
     public static int displayProducts(ArrayList<Product> products, Scanner scanner) {
         System.out.println("Products:");
         for (int i = 0; i < products.size(); i++) {
@@ -112,12 +112,57 @@ public class StockManagement {
             case 4:
                 discontinueProduct(products, scanner);
                 break;
+            case 5:
+            	showStatistic(products,scanner);
+            	break;
             case 0:
                 System.out.println("Exiting...");
                 break;
         }
     }
+    public static void showStatistic(ArrayList<Product> products,Scanner scanner) {
+    	int ovenNum = 0;
+    	int washNum = 0;
+    	int fridgeNum = 0; 
+    	int TVNum  = 0;
+    	double ovenIntValue = 0;
+    	double washIntValue = 0;
+    	double fridgeIntValue = 0; 
+    	double TVIntValue  = 0;
+    	double totalValue=0;
+		for(Product product:products) {
+			if (product instanceof Oven) {
+				ovenNum+=product.getProductQuantity();
+				ovenIntValue += product.getTotalInventoryValue();
+			}
+			if (product instanceof WashingMachine) {
+				washNum+=product.getProductQuantity();
+				washIntValue += product.getTotalInventoryValue();
+			}
+			if (product instanceof Refrigerator) {
+				fridgeNum+=product.getProductQuantity();
+				fridgeIntValue += product.getTotalInventoryValue();
+			}
+			if (product instanceof TV) {
+				TVNum+=product.getProductQuantity();
+				TVIntValue += product.getTotalInventoryValue();
+			}
+			totalValue += product.getTotalInventoryValue();
+			
+		}
+        System.out.println("Product\t\tQuantity\tValue\t\tPercentage of Inventory Value");
+        System.out.printf("%-15s  %-15d %-20.2f %-10.2f %n","Oven",ovenNum,ovenIntValue,ovenIntValue/totalValue);
+        System.out.printf("%-15s  %-15d %-20.2f %-10.2f %n","Washing Machine",washNum,washIntValue,washIntValue/totalValue);
+        System.out.printf("%-15s  %-15d %-20.2f %-10.2f %n","Refridgerator",fridgeNum,fridgeIntValue,fridgeIntValue/totalValue);
+        System.out.printf("%-15s  %-15d %-20.2f %-10.2f %n","TV",TVNum,TVIntValue,TVIntValue/totalValue);
 
+        System.out.println("----------------------------------------------------------");
+
+        System.out.println("Press any key to go back");
+
+        scanner.nextLine(); // Consume the newline character from previous input
+        scanner.nextLine();
+    }
     public static void addProduct(ArrayList<Product> products, Scanner scanner) {
         System.out.println("Add product:");
         System.out.println("1. Refrigerator");

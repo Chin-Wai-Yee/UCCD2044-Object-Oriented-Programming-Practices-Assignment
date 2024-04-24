@@ -36,8 +36,10 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <TextField fx:id="nameTextField" layoutX="326.0" layoutY="288.0" onAction="#switchToMenu" />
-      <Label layoutX="229.0" layoutY="288.0" prefHeight="25.0" prefWidth="89.0" text="Enter name:" textAlignment="CENTER" />
-      <Button layoutX="356.0" layoutY="350.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="25.0" prefWidth="89.0" text="Login" />
+      <TextField fx:id="nameTextField" layoutX="376.0" layoutY="276.0" onAction="#switchToMenu" />
+      <Label layoutX="279.0" layoutY="276.0" prefHeight="25.0" prefWidth="89.0" text="Enter name:" textAlignment="CENTER" />
+      <Button layoutX="322.0" layoutY="382.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="25.0" prefWidth="89.0" text="Login" />
+      <TextField fx:id="maximumQuantity" layoutX="378.0" layoutY="324.0" />
+      <Label layoutX="111.0" layoutY="326.0" prefHeight="25.0" prefWidth="248.0" text="Enter maximum quantity of products:" textAlignment="CENTER" />
    </children>
 </AnchorPane>

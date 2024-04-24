@@ -22,26 +22,54 @@ public class LoginController {
 	private Scene scene;
 	private Parent root;
 	@FXML
-	private Label DateTimeLabel;
-
+    private Label DateTimeLabel;
+    @FXML
+    private TextField maximumQuantity;
+    
 public void switchToMenu(ActionEvent e) throws IOException{
+	try {
 	if (nameTextField.getText() == null || nameTextField.getText().trim().isEmpty()) {
         Alert fail= new Alert(AlertType.INFORMATION);
         fail.setHeaderText("Empty text field");
         fail.setContentText("Name cannot be empty");
         fail.showAndWait();
-	}else {
+	}else if(Integer.parseInt(maximumQuantity.getText()) < 0 ) {
+        Alert fail= new Alert(AlertType.INFORMATION);
+        fail.setHeaderText("Error maximum quantity");
+        fail.setContentText("The quantity should be a positive integer");
+        fail.showAndWait();
+	}
+	else {
 		UserInfo user = new UserInfo(nameTextField.getText(),"");
+		SharedList pal=new SharedList();
+		pal.setMAaximumProduct(Integer.parseInt(maximumQuantity.getText()));
 		
-	FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuUI.fxml"));
-	root  = loader.load();
-	MenuController menuController = loader.getController();
-	menuController.setUserInfo(user);
-
-	stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-	scene = new Scene(root);
-	stage.setScene(scene);
-	stage.show();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuUI.fxml"));
+		root  = loader.load();
+		MenuController menuController = loader.getController();
+		menuController.setUserInfo(user);
+	
+		stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	}catch(NumberFormatException event) {
+		// Handle the case when a number format exception occurs
+		Alert alert = new Alert(AlertType.ERROR);
+	 	alert.setTitle("Input Error");
+	    alert.setHeaderText(null);
+	    alert.setContentText("Please enter a valid number for numeric fields.");
+	    alert.showAndWait();
+        return;
+    }catch (Exception event) {
+		Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Input Error");
+        alert.setHeaderText(null);
+        alert.setContentText("Please enter valid values for all fields.");
+        alert.showAndWait();
+        return;
+		
 	}
 }
 	public void initialize(){
@@ -52,5 +80,4 @@ public void switchToMenu(ActionEvent e) throws IOException{
 		DateTimeLabel.setFont(new Font(18));
 		DateTimeLabel.setTextFill(Color.WHITE);
 	}
-
 }

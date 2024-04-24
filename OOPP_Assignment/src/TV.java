@@ -45,7 +45,7 @@ public class TV extends Product {
     // get the details
     @Override
     public String getDetails() {
-    	String desc = "Screen Type: " + screenType + " Resolution (pixels): " + resolution + " Display size: " + displaySize;
+    	String desc = "TV >> " + "Screen Type: " + screenType + " Resolution (pixels): " + resolution + " Display size: " + displaySize;
     	return (desc);
     }
     

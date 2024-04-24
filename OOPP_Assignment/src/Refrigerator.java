@@ -45,7 +45,7 @@ public class Refrigerator extends Product {
 
     @Override
     public String getDetails() {
-    	String desc = "Door Design: " + doorDesign + " Color: " + color + " Capacity(Litre): " + capacity;
+    	String desc = "Refrigerator >>"+" Door Design: " + doorDesign + " Color: " + color + " Capacity(Litre): " + capacity;
     	return (desc);
     }
     // Override toString method

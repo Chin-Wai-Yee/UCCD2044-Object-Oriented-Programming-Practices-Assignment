@@ -38,7 +38,7 @@ public class WashingMachine extends Product{
 	}
 	@Override
 	public String getDetails() {
-    	String desc = "Capacity (kg): " + capacityKg + " Built-in dryer: " + hasDryer + " Noice Level: " + noiceLevel;
+    	String desc = "Washing Machine >>"+"Capacity (kg): " + capacityKg + " Built-in dryer: " + hasDryer + " Noice Level: " + noiceLevel;
     	return (desc);
     }
 	

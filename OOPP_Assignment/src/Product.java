@@ -8,7 +8,7 @@ public abstract class Product {
 	
 	//Default Constructor
 	public Product() {
-		
+
 	}
 	//Constructor
 	public Product(String productName, double productPrice, int productQuantity, int productItemNumber, boolean productStatus){
@@ -69,11 +69,11 @@ public abstract class Product {
 	public void deductProductQuantity(int num) {
 		productQuantity -= num;
 	}
-
+	
 	public String getDetails() {
 		return "";
 	}
-
+	
 	//override toString
 	@Override 
 	public String toString(){

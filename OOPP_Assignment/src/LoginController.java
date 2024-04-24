@@ -1,5 +1,6 @@
 import java.io.IOException;
-
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +9,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class LoginController {
@@ -17,7 +21,8 @@ public class LoginController {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
-	
+	@FXML
+	private Label DateTimeLabel;
 
 public void switchToMenu(ActionEvent e) throws IOException{
 	if (nameTextField.getText() == null || nameTextField.getText().trim().isEmpty()) {
@@ -39,5 +44,13 @@ public void switchToMenu(ActionEvent e) throws IOException{
 	stage.show();
 	}
 }
+	public void initialize(){
+		LocalDateTime currentDate = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+		String formattedDate = currentDate.format(formatter);
+		DateTimeLabel.setText(formattedDate);
+		DateTimeLabel.setFont(new Font(18));
+		DateTimeLabel.setTextFill(Color.WHITE);
+	}
 
 }

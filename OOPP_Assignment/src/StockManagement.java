@@ -7,6 +7,23 @@ public class StockManagement{
     private static Scanner scanner = new Scanner(System.in);
     private static int productTotalNumber = 0; //increase by 1 when add 1 products
     private static int productMaxNumber;
+    
+    private static final String ALPHA_NUM_REGEX = "[a-zA-Z0-9]+";
+    private static final String NUMBER_REGEX  ="[0-9]+";
+    private static final String DECIMAL_REGEX = "[0-9]*\\\\.?[0-9]*";
+    private static String getInput(String msg, String regex, String err) {
+    	String input;
+    	boolean flag;
+    	do {
+    		System.out.print(msg);
+    		input = scanner.nextLine().trim();
+    		flag =  input.matches(regex);
+    		if(!flag) {
+    			System.out.println("Error: "+ err);
+    		}
+    	}while(!flag);
+    	return input;
+    }
 
     public static int getMaxProducts(Scanner scanner) {
         int maxProducts;
@@ -215,7 +232,7 @@ public class StockManagement{
             if (choice < 1 || choice > 4) {
                 System.out.println("Only numbers 1 to 4 allowed!");
             }
-        } while (choice < 1 || choice > 2);
+        } while (choice < 1 || choice > 4);
         if(productTotalNumber >= productMaxNumber) {
             System.out.println("products reach maximum numbers");
         }

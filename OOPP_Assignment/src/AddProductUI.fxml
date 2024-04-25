@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddProductController">
+   <children>
+      <Pane fx:id="viewPane" prefHeight="49.0" prefWidth="800.0" style="-fx-background-color: #439ae0;">
+         <children>
+            <Label layoutX="26.0" layoutY="-7.0" prefHeight="40.0" prefWidth="125.0" text="SNOW" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="26.0" layoutY="16.0" prefHeight="27.0" prefWidth="268.0" text="Stock Management System" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="20.0" fitWidth="24.0" layoutX="5.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/icons8-snowflake-100.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <GridPane layoutX="224.0" layoutY="469.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="125.0" prefWidth="575.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="168.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="168.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="168.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints />
+        </rowConstraints>
+         <children>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleBackMenuButton" prefHeight="125.0" prefWidth="160.0" style="-fx-text-fill: BLACK; -fx-background-color: #64b9fa; -fx-border-color: black; -fx-font-size: 20;" text="Exit" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="52.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/exit.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="resetButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleResetEvent" prefHeight="125.0" prefWidth="160.0" style="-fx-text-fill: black; -fx-background-color: #64b9fa; -fx-border-color: black; -fx-font-size: 20;" text="Reset" GridPane.columnIndex="1">
+               <graphic>
+                  <ImageView fitHeight="52.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/exit.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleConfirmEvent" prefHeight="125.0" prefWidth="160.0" style="-fx-text-fill: BLACK; -fx-background-color: #64b9fa; -fx-border-color: black; -fx-font-size: 20;" text="Confirm">
+               <graphic>
+                  <ImageView fx:id="confirmButton" fitHeight="52.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/exit.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+      </GridPane>
+      <VBox layoutY="49.0" prefHeight="550.0" prefWidth="223.0" style="-fx-background-color: #cedeeb;">
+         <children>
+            <Button fx:id="refrigeratorButton" mnemonicParsing="false" onAction="#handleRefriEvent" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="67.0" prefWidth="227.0" style="-fx-background-color: #64b9fa; -fx-text-fill: black;" text="Refrigerator">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="tvButton" mnemonicParsing="false" onAction="#handleTVEvent" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="67.0" prefWidth="227.0" style="-fx-background-color: #64b9fa; -fx-text-fill: black;" text="TV">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="ovenButton" mnemonicParsing="false" onAction="#handleOvenEvent" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="67.0" prefWidth="227.0" style="-fx-background-color: #64b9fa; -fx-text-fill: black;" text="Oven">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="washingMachineButton" mnemonicParsing="false" onAction="#handleWashingMachineEvent" prefHeight="67.0" prefWidth="227.0" style="-fx-background-color: #64b9fa; -fx-text-fill: black;" text="Washing Machine">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets top="30.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="223.0" layoutY="49.0" prefHeight="393.0" prefWidth="576.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
+               <children>
+                  <Label fx:id="label1" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Product Number : " />
+                  <TextField fx:id="textField1" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
+               <children>
+                  <Label fx:id="label2" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Product Name :" />
+                  <TextField fx:id="textField2" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
+               <children>
+                  <Label fx:id="label3" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Product Price : " />
+                  <TextField fx:id="textField3" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
+               <children>
+                  <Label fx:id="label4" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Door Design : " />
+                  <TextField fx:id="textField4" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
+               <children>
+                  <Label fx:id="label5" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Color : " />
+                  <TextField fx:id="textField5" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
+               <children>
+                  <Label fx:id="label6" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="capacity(Litres) : " />
+                  <TextField fx:id="textField6" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
+               </children></HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

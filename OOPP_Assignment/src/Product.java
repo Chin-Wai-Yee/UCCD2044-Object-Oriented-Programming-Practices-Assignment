@@ -69,7 +69,7 @@ public abstract class Product {
 		}
 	}
 	public void deductProductQuantity(int num) {
-		if(productStatus) {productQuantity -= num;}
+		if(productStatus && num <= productQuantity) {productQuantity -= num;}
 		else {
 			System.out.println("Product is discontinued");
 		}

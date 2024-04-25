@@ -32,7 +32,7 @@
             </Label>
             <ImageView fitHeight="20.0" fitWidth="24.0" layoutX="5.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Images/icons8-snowflake-100.png" />
+                  <Image url="@Images/icons8-snowflake-50.png" />
                </image>
             </ImageView>
          </children>
@@ -92,34 +92,62 @@
             <Insets left="20.0" right="20.0" />
          </padding>
       </GridPane>
-      <VBox layoutY="49.0" prefHeight="550.0" prefWidth="223.0" style="-fx-background-color: #cedeeb;">
+      <VBox layoutX="-4.0" layoutY="48.0" prefHeight="550.0" prefWidth="223.0" style="-fx-background-color: #cedeeb;">
          <children>
             <Button fx:id="refrigeratorButton" mnemonicParsing="false" onAction="#handleRefriEvent" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="67.0" prefWidth="227.0" style="-fx-background-color: #64b9fa; -fx-text-fill: black;" text="Refrigerator">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/refrigerator.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             <Button fx:id="tvButton" mnemonicParsing="false" onAction="#handleTVEvent" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="67.0" prefWidth="227.0" style="-fx-background-color: #64b9fa; -fx-text-fill: black;" text="TV">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/TV.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             <Button fx:id="ovenButton" mnemonicParsing="false" onAction="#handleOvenEvent" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="67.0" prefWidth="227.0" style="-fx-background-color: #64b9fa; -fx-text-fill: black;" text="Oven">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/oven.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             <Button fx:id="washingMachineButton" mnemonicParsing="false" onAction="#handleWashingMachineEvent" prefHeight="67.0" prefWidth="227.0" style="-fx-background-color: #64b9fa; -fx-text-fill: black;" text="Washing Machine">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/washingMachine.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
          <padding>
             <Insets top="30.0" />
          </padding>
       </VBox>
-      <VBox layoutX="223.0" layoutY="49.0" prefHeight="393.0" prefWidth="576.0">
+      <VBox layoutX="223.0" layoutY="49.0" prefHeight="413.0" prefWidth="576.0">
          <children>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
                <children>
@@ -158,6 +186,12 @@
                   <TextField fx:id="textField6" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" promptText="10.2" />
 
                </children></HBox>
+            <HBox alignment="CENTER" prefHeight="67.0" prefWidth="576.0">
+               <children>
+                  <Label fx:id="label7" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Quantity : " />
+                  <TextField fx:id="textField7" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" promptText="10" />
+               </children>
+            </HBox>
          </children>
       </VBox>
    </children>

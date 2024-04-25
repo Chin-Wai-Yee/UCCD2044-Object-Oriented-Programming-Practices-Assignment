@@ -10,7 +10,9 @@ public class StockManagement {
     private static Scanner scanner = new Scanner(System.in);
     private static int productTotalNumber = 0; //increase by 1 when add 1 products
     private static int productMaxNumber;
+
     private static String name;
+
     public static int getMaxProducts(Scanner scanner) {
     	System.out.println("======================================================");
     	System.out.println("||                                                  ||");

@@ -1,7 +1,5 @@
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
@@ -9,7 +7,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,7 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
-public class StatisticController implements Initializable{
+public class StatisticController{
 	private ArrayList<Product> products = new  ArrayList<Product>();
 
 	private int ovenNum = 0;
@@ -38,12 +35,15 @@ public class StatisticController implements Initializable{
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
-	@Override
-	public void initialize(URL url, ResourceBundle resourceBundle) {
+	private SharedList  productList = new SharedList();
+
+	
+
+	public void initialize() {
 		comboBox.setItems(FXCollections.observableArrayList("Quantity","Inventory Value"));
-		setArray(new SharedList().getProductList());
-		
-		
+
+		products = productList.getProductList();
+
 	}
 	public void setArray(ArrayList<Product>products) {
 	    if (this.products == null) {
@@ -66,19 +66,19 @@ public class StatisticController implements Initializable{
 		fridgeIntValue = 0; 
 		TVIntValue  = 0;
 		for(Product product:products) {
-			if (product instanceof Oven) {
+			if (product instanceof Oven && product.getProductStatus()) {
 				ovenNum+=product.getProductQuantity();
 				ovenIntValue += product.getTotalInventoryValue();
 			}
-			if (product instanceof WashingMachine) {
+			if (product instanceof WashingMachine&& product.getProductStatus()) {
 				washNum+=product.getProductQuantity();
 				washIntValue += product.getTotalInventoryValue();
 			}
-			if (product instanceof Refrigerator) {
+			if (product instanceof Refrigerator&& product.getProductStatus()) {
 				fridgeNum+=product.getProductQuantity();
 				fridgeIntValue += product.getTotalInventoryValue();
 			}
-			if (product instanceof TV) {
+			if (product instanceof TV && product.getProductStatus()) {
 				TVNum+=product.getProductQuantity();
 				TVIntValue += product.getTotalInventoryValue();
 			}

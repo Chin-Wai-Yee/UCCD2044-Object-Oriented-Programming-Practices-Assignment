@@ -63,7 +63,9 @@
                <graphic>
                   <ImageView fitHeight="52.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Images/exit.png" />
+
+                        <Image url="@Images/reset.png" />
+
                      </image>
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -75,7 +77,9 @@
                <graphic>
                   <ImageView fx:id="confirmButton" fitHeight="52.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Images/exit.png" />
+
+                        <Image url="@Images/confirm.png" />
+
                      </image>
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -120,34 +124,43 @@
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
                <children>
                   <Label fx:id="label1" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Product Number : " />
-                  <TextField fx:id="textField1" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
+
+                  <TextField fx:id="textField1" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" promptText="1234" />
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
                <children>
-                  <Label fx:id="label2" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Product Name :" />
-                  <TextField fx:id="textField2" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
+                  <Label fx:id="label2" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Product Name : " />
+                  <TextField fx:id="textField2" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" promptText="samsung refri" />
+
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
                <children>
                   <Label fx:id="label3" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Product Price : " />
-                  <TextField fx:id="textField3" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
+
+                  <TextField fx:id="textField3" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" promptText="1000.11" />
+
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
                <children>
                   <Label fx:id="label4" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Door Design : " />
-                  <TextField fx:id="textField4" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
+   <TextField fx:id="textField4" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" promptText="dual glass door" />
+
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
                <children>
                   <Label fx:id="label5" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Color : " />
-                  <TextField fx:id="textField5" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
+
+                  <TextField fx:id="textField5" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" promptText="blue" />
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
                <children>
-                  <Label fx:id="label6" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="capacity(Litres) : " />
-                  <TextField fx:id="textField6" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
+                  <Label fx:id="label6" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Capacity(Litres) : " />
+                  <TextField fx:id="textField6" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" promptText="10.2" />
+
                </children></HBox>
          </children>
       </VBox>
    </children>
+
 </AnchorPane>
+

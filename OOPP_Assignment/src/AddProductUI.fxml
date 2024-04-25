@@ -63,11 +63,9 @@
                <graphic>
                   <ImageView fitHeight="52.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-<<<<<<< HEAD
-                        <Image url="@Images/exit.png" />
-=======
+
                         <Image url="@Images/reset.png" />
->>>>>>> ef8b15694fb6615de23d2e8f3b55bf6dce1d50a5
+
                      </image>
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -79,11 +77,9 @@
                <graphic>
                   <ImageView fx:id="confirmButton" fitHeight="52.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-<<<<<<< HEAD
-                        <Image url="@Images/exit.png" />
-=======
+
                         <Image url="@Images/confirm.png" />
->>>>>>> ef8b15694fb6615de23d2e8f3b55bf6dce1d50a5
+
                      </image>
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -128,64 +124,43 @@
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
                <children>
                   <Label fx:id="label1" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Product Number : " />
-<<<<<<< HEAD
-                  <TextField fx:id="textField1" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
-               </children></HBox>
-            <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
-               <children>
-                  <Label fx:id="label2" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Product Name :" />
-                  <TextField fx:id="textField2" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
-=======
+
                   <TextField fx:id="textField1" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" promptText="1234" />
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
                <children>
                   <Label fx:id="label2" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Product Name : " />
                   <TextField fx:id="textField2" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" promptText="samsung refri" />
->>>>>>> ef8b15694fb6615de23d2e8f3b55bf6dce1d50a5
+
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
                <children>
                   <Label fx:id="label3" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Product Price : " />
-<<<<<<< HEAD
-                  <TextField fx:id="textField3" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
-=======
+
                   <TextField fx:id="textField3" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" promptText="1000.11" />
->>>>>>> ef8b15694fb6615de23d2e8f3b55bf6dce1d50a5
+
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
                <children>
                   <Label fx:id="label4" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Door Design : " />
-<<<<<<< HEAD
-                  <TextField fx:id="textField4" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
-=======
-                  <TextField fx:id="textField4" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" promptText="dual glass door" />
->>>>>>> ef8b15694fb6615de23d2e8f3b55bf6dce1d50a5
+   <TextField fx:id="textField4" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" promptText="dual glass door" />
+
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
                <children>
                   <Label fx:id="label5" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Color : " />
-<<<<<<< HEAD
-                  <TextField fx:id="textField5" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
-               </children></HBox>
-            <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
-               <children>
-                  <Label fx:id="label6" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="capacity(Litres) : " />
-                  <TextField fx:id="textField6" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" />
-=======
+
                   <TextField fx:id="textField5" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" promptText="blue" />
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="577.0">
                <children>
                   <Label fx:id="label6" alignment="CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="145.0" text="Capacity(Litres) : " />
                   <TextField fx:id="textField6" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="389.0" promptText="10.2" />
->>>>>>> ef8b15694fb6615de23d2e8f3b55bf6dce1d50a5
+
                </children></HBox>
          </children>
       </VBox>
    </children>
-<<<<<<< HEAD
+
 </AnchorPane>
-=======
-</AnchorPane>
->>>>>>> ef8b15694fb6615de23d2e8f3b55bf6dce1d50a5
+

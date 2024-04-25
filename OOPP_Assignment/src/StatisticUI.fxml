@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -15,17 +16,28 @@
       <Pane prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #439ae0;">
          <children>
             <ComboBox fx:id="comboBox" layoutY="235.0" onAction="#setChart" prefHeight="25.0" prefWidth="200.0" promptText="Choose chart type" stylesheets="@stylesheets/StatisticCSS.css" visibleRowCount="2" />
-            <Button layoutY="574.0" mnemonicParsing="false" onAction="#handleBackBtn" prefHeight="25.0" prefWidth="200.0" stylesheets="@stylesheets/StatisticCSS.css" text="Back" />
             <ImageView fitHeight="74.0" fitWidth="81.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/icons8-snowflake-100.png" />
                </image>
             </ImageView>
-            <Label layoutX="90.0" layoutY="38.0" prefHeight="27.0" prefWidth="96.0" text="Analytics" textFill="WHITE">
+            <Label layoutX="84.0" layoutY="18.0" prefHeight="66.0" prefWidth="96.0" text="Analytics" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font size="24.0" />
                </font>
             </Label>
+            <Button contentDisplay="TOP" layoutX="20.0" layoutY="441.0" mnemonicParsing="false" onAction="#handleBackBtn" prefHeight="125.0" prefWidth="160.0" style="-fx-text-fill: BLACK; -fx-background-color: #64b9fa; -fx-border-color: black; -fx-font-size: 20;" text="Exit">
+               <graphic>
+                  <ImageView fitHeight="52.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/exit.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </Pane>
    </children>

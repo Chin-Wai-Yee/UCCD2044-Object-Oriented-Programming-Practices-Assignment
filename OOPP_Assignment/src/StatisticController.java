@@ -88,7 +88,9 @@ public class StatisticController{
 	}
 	public void setChart() {
 		chartPane.getChildren().clear();
-
+		setValues(products);
+		int total = ovenNum+washNum+fridgeNum+TVNum;
+		double totalValue = ovenIntValue+washIntValue+TVIntValue+fridgeIntValue;
 		if(products.isEmpty()) {
 			
 	        Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -97,10 +99,16 @@ public class StatisticController{
 	        alert.setContentText("Please insert some products in the view product interface");
 	        alert.showAndWait();
 		}
-
+		else if(total ==0) {
+	        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+	        alert.setTitle("Empty data");
+	        alert.setHeaderText(null);
+	        alert.setContentText("All products has quantity 0. Please go to add stock interface to add some quantity");
+	        alert.showAndWait();
+		}
 		else if (comboBox.getValue() == "Quantity") {
-			setValues(products);
-			int total = ovenNum+washNum+fridgeNum+TVNum;
+			
+			
 		ObservableList<PieChart.Data> list = FXCollections.observableArrayList();
 		list.add(new PieChart.Data("Oven", ovenNum));
 		list.add(new PieChart.Data("Washing Machine", washNum));
@@ -119,8 +127,8 @@ public class StatisticController{
 
 		}
 		else if(comboBox.getValue()== "Inventory Value") {
-			setValues(products);
-			double total = ovenIntValue+washIntValue+TVIntValue+fridgeIntValue;
+			//setValues(products);
+
 			ObservableList<PieChart.Data> list = FXCollections.observableArrayList();
 			list.add(new PieChart.Data("Oven", ovenIntValue ));
 			list.add(new PieChart.Data("Washing Machine",  washIntValue));
@@ -129,7 +137,7 @@ public class StatisticController{
 			list.forEach(data ->
 	        data.nameProperty().bind(
 	                Bindings.concat(
-	                        data.getName(), " RM ", data.pieValueProperty(), " ",String.format("%.2f", data.pieValueProperty().getValue()/total*100),"%"
+	                        data.getName(), " RM ", data.pieValueProperty(), " ",String.format("%.2f", data.pieValueProperty().getValue()/totalValue*100),"%"
 	                )
 	        )
   

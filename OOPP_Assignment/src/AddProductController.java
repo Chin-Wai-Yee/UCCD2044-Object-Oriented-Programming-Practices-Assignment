@@ -75,6 +75,13 @@ public class AddProductController {
 
     @FXML
     private TextField textField6;
+    
+    @FXML
+    private Label label7;
+
+    @FXML
+    private TextField textField7;
+    
 	@FXML
 	public void switchScene(ActionEvent e, String fxmlFile) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
@@ -108,6 +115,7 @@ public class AddProductController {
     	label4.setText("Door Design : ");
     	label5.setText("Color : ");
     	label6.setText("Capacity(Litres) : ");
+    	label7.setText("Quantity : ");
     	
     	textField1.setPromptText("1234");
     	textField2.setPromptText("samsung refri");
@@ -115,7 +123,7 @@ public class AddProductController {
     	textField4.setPromptText("dual glass door");
     	textField5.setPromptText("blue");
     	textField6.setPromptText("10.2");
-
+    	textField7.setPromptText("10");
     	targetProduct=1;
     }
     @FXML
@@ -126,14 +134,16 @@ public class AddProductController {
     	label4.setText("Screen Type : ");
     	label5.setText("Resolution : ");
     	label6.setText("Display Size : ");
-    	
+    	label7.setText("Quantity : ");
+
     	textField1.setPromptText("1234");
     	textField2.setPromptText("samsung refri");
     	textField3.setPromptText("1000.11");
     	textField4.setPromptText("OLED");
     	textField5.setPromptText("1080");
     	textField6.setPromptText("81");
-    	
+    	textField7.setPromptText("10");
+
     	targetProduct=2;
     }
     @FXML
@@ -144,14 +154,16 @@ public class AddProductController {
     	label4.setText("Glass Door Design : ");
     	label5.setText("Convection Heating : ");
     	label6.setText("Built-in Timer : ");
-    	
+    	label7.setText("Quantity : ");
+
     	textField1.setPromptText("1234");
     	textField2.setPromptText("samsung refri");
     	textField3.setPromptText("1000.11");
     	textField4.setPromptText("tempered-glass door");
     	textField5.setPromptText("true/false");
     	textField6.setPromptText("true/false");
-    	
+    	textField7.setPromptText("10");
+
     	targetProduct=3;
     }
 
@@ -164,6 +176,7 @@ public class AddProductController {
     	label4.setText("Capacity(Kg) : ");
     	label5.setText("Built-in Dryer : ");
     	label6.setText("Noice Level : ");
+    	label7.setText("Quantity : ");
     	
     	textField1.setPromptText("1234");
     	textField2.setPromptText("samsung refri");
@@ -171,7 +184,8 @@ public class AddProductController {
     	textField4.setPromptText("10");
     	textField5.setPromptText("true/false");
     	textField6.setPromptText("low/medium/high");
-    	
+    	textField7.setPromptText("10");
+
     	targetProduct=4;
     }
 
@@ -187,32 +201,36 @@ public class AddProductController {
     		}
     		String tf2 = textField2.getText();//product name
     		Double tf3 = Double.parseDouble(textField3.getText()); //price
+    		int tf7 = Integer.parseInt(textField7.getText());
+    		if(tf7 < 0) {
+    			throw new NumberFormatException();
+    		}
 			if(targetProduct==1) {//refrigerator
 	    		String tf4 = textField4.getText();
 	    		String tf5 = textField5.getText();
 	    		Double tf6 = Double.parseDouble(textField6.getText());
-	    	    Product n1 = new Refrigerator(tf2,tf3,0,tf1,true,tf4,tf5,tf6);
+	    	    Product n1 = new Refrigerator(tf2,tf3,tf7,tf1,true,tf4,tf5,tf6);
 	    	    pal.addProducts(n1);
 	    	}
 	    	else if(targetProduct==2) {//tv
 	    		String tf4 = textField4.getText();
 	    		int tf5 = Integer.parseInt(textField5.getText());
 	    		int tf6 = Integer.parseInt(textField6.getText());
-	    	    Product n1 = new TV(tf2,tf3,0,tf1,true,tf4,tf5,tf6);
+	    	    Product n1 = new TV(tf2,tf3,tf7,tf1,true,tf4,tf5,tf6);
 	    	    pal.addProducts(n1);
 	    	}
 	    	else if(targetProduct==3) {//oven
 	    		String tf4 = textField4.getText();
 	    		Boolean tf5 = Boolean.parseBoolean(textField5.getText());
 	    		Boolean tf6 = Boolean.parseBoolean(textField6.getText());
-	    	    Product n1 = new Oven(tf2,tf3,0,tf1,true,tf4,tf5,tf6);
+	    	    Product n1 = new Oven(tf2,tf3,tf7,tf1,true,tf4,tf5,tf6);
 	    	    pal.addProducts(n1);
 	    	}
 	    	else if(targetProduct==4) {//washing machine
 	    		int tf4 = Integer.parseInt(textField4.getText());
 	    		Boolean tf5 = Boolean.parseBoolean(textField5.getText());
 	    		String tf6 = textField6.getText();
-	    	    Product n1 = new WashingMachine(tf2,tf3,0,tf1,true,tf4,tf5,tf6);
+	    	    Product n1 = new WashingMachine(tf2,tf3,tf7,tf1,true,tf4,tf5,tf6);
 	    	    pal.addProducts(n1);
 	    	}
 	    	Alert alert = new Alert(AlertType.INFORMATION);
@@ -254,6 +272,8 @@ public class AddProductController {
     	textField4.clear();
     	textField5.clear();
     	textField6.clear();
+    	textField7.clear();
+    	
 
     }
 }

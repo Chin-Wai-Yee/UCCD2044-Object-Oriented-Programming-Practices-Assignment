@@ -1,4 +1,3 @@
-
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -10,7 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
-
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class MenuController{
@@ -64,9 +63,6 @@ public class MenuController{
 		stage =	(Stage)((Node)e.getSource()).getScene().getWindow();
 		stage.close();
 		}
-	
 	}
-	
-
 
 }

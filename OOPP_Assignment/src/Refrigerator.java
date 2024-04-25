@@ -5,7 +5,6 @@ public class Refrigerator extends Product {
 	private double capacity;
 	//Default constructor
 	public Refrigerator() {
-		
 	}
 
     // Constructor
@@ -44,6 +43,11 @@ public class Refrigerator extends Product {
 
     //A method to calculate the value of stock of a refrigerator??
 
+    @Override
+    public String getDetails() {
+    	String desc = "Refrigerator >>"+" Door Design: " + doorDesign + " Color: " + color + " Capacity(Litre): " + capacity;
+    	return (desc);
+    }
     // Override toString method
     @Override
     public String toString() {

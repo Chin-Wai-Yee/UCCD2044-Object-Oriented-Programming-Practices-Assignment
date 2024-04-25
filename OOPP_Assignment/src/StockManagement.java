@@ -1,12 +1,16 @@
-import java.util.ArrayList;
 import java.util.Scanner;
-
-import javafx.application.Platform;
-public class StockManagement{
-	
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+public class StockManagement {
+	public static final String ALPHA_NUM_REGEX = "^[a-zA-Z0-9\\s]*$";
+    private static final String INTEGER_REGEX = "^\\d+$";
+    private static final String DOUBLE_REGEX = "^\\d*\\.?\\d+$";
+    private static final String BOOLEAN_REGEX = "^(?i)(true|false)$";
     private static Scanner scanner = new Scanner(System.in);
     private static int productTotalNumber = 0; //increase by 1 when add 1 products
     private static int productMaxNumber;
+<<<<<<< HEAD
     
     private static final String ALPHA_NUM_REGEX = "[a-zA-Z0-9]+";
     private static final String NUMBER_REGEX  ="[0-9]+";
@@ -25,22 +29,30 @@ public class StockManagement{
     	return input;
     }
 
+=======
+    private static String name;
+>>>>>>> ef8b15694fb6615de23d2e8f3b55bf6dce1d50a5
     public static int getMaxProducts(Scanner scanner) {
+    	System.out.println("======================================================");
+    	System.out.println("||                                                  ||");
+    	System.out.println("||      Welcome to snow stock management system     ||");
+    	System.out.println("||                                                  ||");
+    	System.out.println("======================================================");
+    	LocalDateTime currentDate = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+		String formattedDate = currentDate.format(formatter);
+		System.out.println("Current Date and Time: " + formattedDate);
         int maxProducts;
+        name=getStringInput("Enter your name :",ALPHA_NUM_REGEX,scanner);
         do {
-            System.out.print("Enter the maximum number of products: ");
-            while (!scanner.hasNextInt()) {
-                System.out.println("Please enter a valid positive integer.");
-                scanner.next();
-            }
-            maxProducts = scanner.nextInt();
+        	maxProducts=getIntInput("Enter the maximum number of products: ",INTEGER_REGEX,scanner);
             if (maxProducts <= 0) {
                 System.out.println("Please enter a positive value.");
             }
         } while (maxProducts <= 0);
-        return maxProducts;
+        System.out.println("Nice to meet you..." + name);        return maxProducts;
     }
-
+    
     public static int displayProducts(ArrayList<Product> products, Scanner scanner) {
         if(products.isEmpty()) {
         	return -1;
@@ -51,12 +63,7 @@ public class StockManagement{
         }
         int choice;
         do {
-            System.out.print("Select a product to update: ");
-            while (!scanner.hasNextInt()) {
-                System.out.println("Please enter a valid product index.");
-                scanner.next();
-            }
-            choice = scanner.nextInt();
+        	choice=getIntInput("Select a product to update: ",INTEGER_REGEX,scanner);
             if (choice < 1 || choice >= products.size()+1) {
                 System.out.println("Please enter a valid product index.");
             }
@@ -97,19 +104,16 @@ public class StockManagement{
         	System.out.println("No product added in this system");
         	return;
         }
-        System.out.print("Enter the quantity to add: ");
         int quantityToAdd;
         do {
-            while (!scanner.hasNextInt()) {
-                System.out.println("Please enter a valid quantity.");
-                scanner.next();
-            }
-            quantityToAdd = scanner.nextInt();
+            quantityToAdd = getIntInput("Enter the quantity to add: ", INTEGER_REGEX, scanner);
             if (quantityToAdd <= 0) {
                 System.out.println("Please enter a positive value.");
             }
         } while (quantityToAdd <= 0);
-        products.get(choice).setProductQuantity(products.get(choice).getProductQuantity() + quantityToAdd);
+        choice -= 1;
+        products.get(choice)
+                .setProductQuantity(products.get(choice).getProductQuantity() + quantityToAdd);
         System.out.println("Stock added successfully.");
     }
 
@@ -122,16 +126,14 @@ public class StockManagement{
         System.out.print("Enter the quantity to deduct: ");
         int quantityToDeduct;
         do {
-            while (!scanner.hasNextInt()) {
-                System.out.println("Please enter a valid quantity.");
-                scanner.next();
-            }
-            quantityToDeduct = scanner.nextInt();
+            quantityToDeduct = getIntInput("Enter the quantity to deduct: ", INTEGER_REGEX, scanner);
             if (quantityToDeduct <= 0 || quantityToDeduct > products.get(choice).getProductQuantity()) {
                 System.out.println("Please enter a valid quantity.");
             }
         } while (quantityToDeduct <= 0 || quantityToDeduct > products.get(choice).getProductQuantity());
-        products.get(choice).setProductQuantity(products.get(choice).getProductQuantity() - quantityToDeduct);
+        choice -= 1;
+        products.get(choice)
+                .setProductQuantity(products.get(choice).getProductQuantity() - quantityToDeduct);
         System.out.println("Stock deducted successfully.");
     }
 
@@ -142,7 +144,6 @@ public class StockManagement{
         	return;
         }
         products.get(choice-1).setProductStatus(false);
-
         System.out.println("Product discontinued successfully.");
     }
 
@@ -222,13 +223,7 @@ public class StockManagement{
 
         int choice;
         do {
-            System.out.print("Enter your choice: ");
-            while (!scanner.hasNextInt()) {
-                System.out.println("Please enter a valid choice.");
-                scanner.next();
-            }
-            choice = scanner.nextInt();
-
+        	choice=getIntInput("Enter your choice: ",INTEGER_REGEX,scanner);
             if (choice < 1 || choice > 4) {
                 System.out.println("Only numbers 1 to 4 allowed!");
             }
@@ -250,24 +245,14 @@ public class StockManagement{
 
     public static void addRefrigerator(ArrayList<Product>products, Scanner scanner) {
 		int value=-1,itemNumber;
-
-        scanner.nextLine(); // Consume newline character
-        System.out.print("Enter name: ");
-        String name = scanner.nextLine();
-        System.out.print("Enter door design: ");
-        String doorDesign = scanner.nextLine();
-        System.out.print("Enter color: ");
-        String color = scanner.nextLine();
-        System.out.print("Enter capacity: ");
-        int capacity = scanner.nextInt();
-
-//        System.out.print("Enter quantity available in stock: ");
-//        int quantity = scanner.nextInt();
-        System.out.print("Enter price: ");
-        double price = scanner.nextDouble();
+        String name = getStringInput("Enter name: ",ALPHA_NUM_REGEX,scanner);
+        String doorDesign = getStringInput("Enter door design: ",ALPHA_NUM_REGEX,scanner);
+        String color = getStringInput("Enter color: ",ALPHA_NUM_REGEX,scanner);
+        double capacity = getDoubleInput("Enter capacity: ",DOUBLE_REGEX,scanner);
+        //int quantity=getIntInput("Enter quantity available in stock: ",INTEGER_REGEX,scanner);
+        double price = getDoubleInput("Enter price: ",DOUBLE_REGEX,scanner);
         do {
-        	System.out.print("Enter item number: ");
-        	itemNumber = scanner.nextInt();
+        	itemNumber = getIntInput("Enter item number: ",INTEGER_REGEX,scanner);
             value=checkItemNumber(itemNumber,products);
             if(value!=-1) {
                 System.out.println("dear user...item number found in the system..");
@@ -277,31 +262,19 @@ public class StockManagement{
         //String productName, double productPrice, int productQuantity, int productItemNumber, boolean productStatus, String doorDesign, String color, double capacity
         products.add(new Refrigerator(name,price, 0, itemNumber,true, doorDesign, color, capacity));
         productTotalNumber++;
-
         System.out.println("Refrigerator added successfully.");
     }
 
     public static void addTV(ArrayList<Product> products, Scanner scanner) {
-
     	int value,itemNumber;
-
-        scanner.nextLine(); // Consume newline character
-        System.out.print("Enter name: ");
-        String name = scanner.nextLine();
-        System.out.print("Enter screen type: ");
-        String screenType = scanner.nextLine();
-        System.out.print("Enter resolution: ");
-        int resolution = scanner.nextInt();
-        System.out.print("Enter display size: ");
-        int displaySize = scanner.nextInt();
-
-//      System.out.print("Enter quantity available in stock: ");
-//      int quantity = scanner.nextInt();
-        System.out.print("Enter price: ");
-        double price = scanner.nextDouble();
+        String name = getStringInput("Enter name: ",ALPHA_NUM_REGEX,scanner);
+        String screenType = getStringInput("Enter screen type: ",ALPHA_NUM_REGEX,scanner);
+        int resolution = getIntInput("Enter resolution: ",INTEGER_REGEX,scanner);
+        int displaySize = getIntInput("Enter display size: ",INTEGER_REGEX,scanner);
+      //int quantity=getIntInput("Enter quantity available in stock: ",INTEGER_REGEX,scanner);
+        double price = getDoubleInput("Enter price: ",DOUBLE_REGEX,scanner);
         do {
-        	System.out.print("Enter item number: ");
-        	itemNumber = scanner.nextInt();
+        	itemNumber = getIntInput("Enter item number: ",INTEGER_REGEX,scanner);
             value=checkItemNumber(itemNumber,products);
             if(value!=-1) {
                 System.out.print("dear user...item number found in the system..");
@@ -316,22 +289,14 @@ public class StockManagement{
     
     public static void addOven(ArrayList<Product> products, Scanner scanner) {
     	int itemNumber,value;
-        scanner.nextLine(); // Consume newline character
-        System.out.print("Enter name: ");
-        String name = scanner.nextLine();
-        System.out.print("Enter glass door design: ");
-        String glassDoor = scanner.nextLine();
-        System.out.print("Enter built-in convection: ");
-        boolean hasConvection = scanner.nextBoolean();
-        System.out.print("Enter built-in timer: ");
-        boolean hasTimer = scanner.nextBoolean();
-//      System.out.print("Enter quantity available in stock: ");
-//      int quantity = scanner.nextInt();
-        System.out.print("Enter price: ");
-        double price = scanner.nextDouble();
+        String name = getStringInput("Enter name: ",ALPHA_NUM_REGEX,scanner);
+        String glassDoor = getStringInput("Enter glass door design: ",ALPHA_NUM_REGEX,scanner);
+        boolean hasConvection = getBooleanInput("Enter built-in convection: ",BOOLEAN_REGEX,scanner);
+        boolean hasTimer = getBooleanInput("Enter built-in timer: ",BOOLEAN_REGEX,scanner);
+      //int quantity=getIntInput("Enter quantity available in stock: ",INTEGER_REGEX,scanner);
+        double price = getDoubleInput("Enter price: ",DOUBLE_REGEX,scanner);
         do {
-        	System.out.print("Enter item number: ");
-        	itemNumber = scanner.nextInt();
+        	itemNumber = getIntInput("Enter item number: ",INTEGER_REGEX,scanner);
             value=checkItemNumber(itemNumber,products);
             if(value!=-1) {
                 System.out.print("dear user...item number found in the system..");
@@ -346,22 +311,14 @@ public class StockManagement{
     
     public static void addWashingMachine(ArrayList<Product> products, Scanner scanner) {
     	int itemNumber,value;
-        scanner.nextLine(); // Consume newline character
-        System.out.print("Enter name: ");
-        String name = scanner.nextLine();
-        System.out.print("Enter capacity(KG): ");
-        int capacityKg = scanner.nextInt();
-        System.out.print("Enter built-in dryer ");
-        boolean hasDryer=scanner.nextBoolean();
-        System.out.print("Enter noice level: ");
-        String noiceLevel = scanner.nextLine();
-        //System.out.print("Enter quantity available in stock: ");
-        //int quantity = scanner.nextInt();
-        System.out.print("Enter price: ");
-        double price = scanner.nextDouble();
+        String name = getStringInput("Enter name: ",ALPHA_NUM_REGEX,scanner);
+        int capacityKg = getIntInput("Enter capacity(KG): ",INTEGER_REGEX,scanner);
+        boolean hasDryer=getBooleanInput("Enter built-in dryer ",BOOLEAN_REGEX,scanner);
+        String noiceLevel = getStringInput("Enter noice level: ",ALPHA_NUM_REGEX,scanner);
+      //int quantity=getIntInput("Enter quantity available in stock: ",INTEGER_REGEX,scanner);
+        double price = getDoubleInput("Enter price: ",DOUBLE_REGEX,scanner);
         do {
-        	System.out.print("Enter item number: ");
-        	itemNumber = scanner.nextInt();
+        	itemNumber = getIntInput("Enter item number: ",INTEGER_REGEX,scanner);
             value=checkItemNumber(itemNumber,products);
             if(value!=-1) {
                 System.out.print("dear user...item number found in the system..");
@@ -369,7 +326,6 @@ public class StockManagement{
         }while(value!=-1);
         // Create WashingMachine object and store it in the array
         // String productName, double productPrice, int productQuantity, int productItemNumber,boolean productStatus,int capacityKg,boolean hasDryer,String noiceLevel
-
         products.add(new WashingMachine(name, price, 0, itemNumber, true, capacityKg,hasDryer,noiceLevel));
         productTotalNumber++;
         System.out.println("TV added successfully.");
@@ -382,7 +338,6 @@ public class StockManagement{
 //    	productTotalNumber++;
 //    	products.add(new Refrigerator("Samsung refri" ,9999, 0, 1,true, "dual glass", "black", 12));
 //        products.add(new WashingMachine("Samsung wash" ,999, 0, 2,true, 10, true, "low"));
-
         do {
             displayProducts(products);
             choice = productMenu(products);
@@ -397,11 +352,10 @@ public class StockManagement{
 			for (Product product:products) {
 				System.out.printf("%-15d  %-20s %-14.2f %-10d %-7s %-40s%n",product.getProductItemNumber(),product.getProductName(),product.getProductPrice(),product.getProductQuantity(),product.getProductStatus(),product.getDetails());
 		}
+		System.out.println();
     }
 	//product selection menu	
 	public static int productMenu(ArrayList<Product> products) {   
-        System.out.println(productTotalNumber);
-
 		int choice;
         do {
             System.out.println("Product Menu:");
@@ -409,13 +363,7 @@ public class StockManagement{
             System.out.println("2. Update product");
             System.out.println("3. Delete product");
             System.out.println("0. Exit");
-            System.out.print("Please enter a menu option: ");
-            while (!scanner.hasNextInt()) {
-                System.out.println("Please enter a valid menu option.");
-                System.out.print("Please enter a menu option: ");
-                scanner.next();
-            }
-            choice = scanner.nextInt();
+            choice=getIntInput("Please enter a menu option: ",INTEGER_REGEX,scanner);
             if (choice < 0 || choice > 3) {
                 System.out.println("Please enter a valid menu option.");
             }
@@ -450,13 +398,7 @@ public class StockManagement{
 		}
 		else {
 			displayProducts(products);
-            System.out.print("Please enter item number to update: ");
-            while(!scanner.hasNextInt()) {
-                System.out.print("Please enter valid item number to update: ");
-                System.out.print("Please reenter item number to update: ");
-                scanner.next();
-            }
-            itemNumber=scanner.nextInt();
+			itemNumber=getIntInput("Please enter item number to update: ",INTEGER_REGEX,scanner);
             int value=checkItemNumber(itemNumber,products);
             if(value!=-1) {
 				Product tempProduct = products.get(value);
@@ -474,7 +416,7 @@ public class StockManagement{
 				}
             }
             else {
-                System.out.print("dear user...item number not found in the system..");
+                System.out.print("Dear user...item number not found in the system..");
             }
 		}
 	}
@@ -490,14 +432,8 @@ public class StockManagement{
 			System.out.println("3. Product Door Design");
 			System.out.println("4. Product color");
 			System.out.println("5. Product capacity(kg)");
-			System.out.println("6. Exit");
-            System.out.println("Please enter a menu option to update:");
-			while (!scanner.hasNextInt()) {
-                System.out.println("Please enter a valid menu option:");
-                System.out.print("Please enter a menu option: ");
-                scanner.next();
-            }
-            choice = scanner.nextInt();
+			System.out.println("0. Exit");
+            choice = getIntInput("Please enter a menu option to update:",INTEGER_REGEX,scanner);
             if (choice < 0 || choice > 6) {
                 System.out.println("Invalid menu option.");
             }
@@ -505,27 +441,27 @@ public class StockManagement{
             	tempProduct=updateSuperValue(choice,tempProduct,scanner);
             }
             else if(choice==3) {
-            	System.out.print("Please enter a new door design: ");
-    			tempDoorDesign=scanner.nextLine();
+            	tempDoorDesign = getStringInput("Enter door design: ",ALPHA_NUM_REGEX,scanner);
     			Refrigerator refrigerator = (Refrigerator) tempProduct;
                 refrigerator.setDoorDesign(tempDoorDesign);
                 tempProduct = refrigerator;
             }
             else if(choice==4) {
-            	System.out.print("Please enter a new color: ");
-    			tempColor=scanner.nextLine();
+    			tempColor=getStringInput("Enter color: ",ALPHA_NUM_REGEX,scanner);
     			Refrigerator refrigerator = (Refrigerator) tempProduct;
                 refrigerator.setDoorDesign(tempColor);
                 tempProduct = refrigerator;
             }
             else if(choice==5) {
-            	System.out.print("Please enter a capacity: ");
-    			tempCapacity=scanner.nextDouble();
+    			tempCapacity=getDoubleInput("Enter capacity: ",DOUBLE_REGEX,scanner);
     			Refrigerator refrigerator = (Refrigerator) tempProduct;
                 refrigerator.setCapacity(tempCapacity);
                 tempProduct = refrigerator;
             }
-		}while(choice!=7);
+            else if(choice==0) {
+            	System.out.println("Back to product menu....");
+            }
+		}while(choice!=0);
 		products.set(indexNumber,tempProduct);
 	}
 	public static void updateOven(int indexNumber,ArrayList<Product> products,Scanner scanner){
@@ -540,14 +476,8 @@ public class StockManagement{
 			System.out.println("3. Product Glass Door Design");
 			System.out.println("4. Product convection heating");
 			System.out.println("5. Product built-in timer");
-			System.out.println("6. Exit");
-            System.out.println("Please enter a menu option to update.");
-			while (!scanner.hasNextInt()) {
-                System.out.println("Please enter a valid menu option.");
-                System.out.print("Please enter a menu option: ");
-                scanner.next();
-            }
-            choice = scanner.nextInt();
+			System.out.println("0. Exit");
+            choice=getIntInput("Please enter a menu option to update: ",INTEGER_REGEX,scanner);
             if (choice < 0 || choice > 3) {
                 System.out.println("Please enter a valid menu option.");
             }
@@ -555,27 +485,26 @@ public class StockManagement{
             	tempProduct=updateSuperValue(choice,tempProduct,scanner);
             }
             else if(choice==3) {
-            	System.out.print("Please enter a new door design: ");
-    			tempGlassDoorDesign=scanner.nextLine();
+    			tempGlassDoorDesign=getStringInput("Enter glass door design: ",ALPHA_NUM_REGEX,scanner);
     			Oven oven = (Oven) tempProduct;
                 oven.setGlassDoorDesign(tempGlassDoorDesign);
                 tempProduct = oven;
             }
             else if(choice==4) {
-            	System.out.print("Please enter a new door design: ");
-    			tempHasConvection=scanner.nextBoolean();
+            	tempHasConvection=getBooleanInput("Enter built-in convection: ",BOOLEAN_REGEX,scanner);
     			Oven oven = (Oven) tempProduct;
                 oven.setHasConventional(tempHasConvection);
                 tempProduct = oven;
             }
             else if(choice==5) {
-            	System.out.print("Please enter a new door design: ");
-    			tempHasTimer=scanner.nextBoolean();
+    			tempHasTimer=getBooleanInput("Enter built-in timer: ",BOOLEAN_REGEX,scanner);
     			Oven oven = (Oven) tempProduct;
                 oven.setHasTimer(tempHasTimer);
                 tempProduct = oven;
+            }else if(choice==0) {
+            	System.out.println("Back to product menu....");
             }
-		}while(choice!=7);
+		}while(choice!=0);
 		products.set(indexNumber,tempProduct);
 	}
 	public static void updateTV(int indexNumber,ArrayList<Product> products,Scanner scanner){
@@ -590,14 +519,8 @@ public class StockManagement{
 			System.out.println("3. Product Screen Type");
 			System.out.println("4. Product Resolution");
 			System.out.println("5. Product Display Size");
-			System.out.println("6. Exit");
-            System.out.println("Please enter a menu option to update.");
-			while (!scanner.hasNextInt()) {
-                System.out.println("Please enter a valid menu option.");
-                System.out.print("Please enter a menu option: ");
-                scanner.next();
-            }
-            choice = scanner.nextInt();
+			System.out.println("0. Exit");
+            choice=getIntInput("Please enter a menu option: ",INTEGER_REGEX,scanner);			
             if (choice < 0 || choice > 6) {
                 System.out.println("Please enter a valid menu option.");
             }
@@ -605,27 +528,26 @@ public class StockManagement{
             	tempProduct=updateSuperValue(choice,tempProduct,scanner);
             }
             else if(choice==3) {
-            	System.out.print("Please enter a new door design: ");
-    			tempScreenType=scanner.nextLine();
+            	tempScreenType=getStringInput("Enter screen type: ",ALPHA_NUM_REGEX,scanner);
     			TV  tv = (TV) tempProduct;
                 tv.setScreenType(tempScreenType);
                 tempProduct = tv;
             }
             else if(choice==4) {
-            	System.out.print("Please enter a new door design: ");
-    			tempResolution=scanner.nextInt();
+            	tempResolution=getIntInput("Enter resolution: ",INTEGER_REGEX,scanner);
     			TV tv = (TV) tempProduct;
                 tv.setResolution(tempResolution);
                 tempProduct = tv;
             }
             else if(choice==5) {
-            	System.out.print("Please enter a new door design: ");
-    			tempDisplaySize=scanner.nextInt();
-    			TV tv = (TV) tempProduct;
+            	tempDisplaySize=getIntInput("Enter resolution: ",INTEGER_REGEX,scanner);
+            	TV tv = (TV) tempProduct;
                 tv.setDisplaySize(tempDisplaySize);
                 tempProduct = tv;
+            }else if(choice==0) {
+            	System.out.println("Back to product menu....");
             }
-		}while(choice!=6);
+		}while(choice!=0);
 		products.set(indexNumber,tempProduct);
 	}
 	public static void updateWashingMachine(int indexNumber,ArrayList<Product> products,Scanner scanner){
@@ -640,7 +562,7 @@ public class StockManagement{
 			System.out.println("3. Product Capacity(kg)");
 			System.out.println("4. Product Built-in Dryer");
 			System.out.println("5. Product Noice Level");
-			System.out.println("6. Exit");
+			System.out.println("0. Exit");
             System.out.println("Please enter a menu option to update.");
 			while (!scanner.hasNextInt()) {
                 System.out.println("Please enter a valid menu option.");
@@ -655,40 +577,37 @@ public class StockManagement{
             	tempProduct=updateSuperValue(choice,tempProduct,scanner);
             }
             else if(choice==3) {
-            	System.out.print("Please enter a new door design: ");
-    			tempCapacityKg=scanner.nextInt();
+    			tempCapacityKg=getIntInput("Enter capacity(KG): ",INTEGER_REGEX,scanner);
     			WashingMachine wm = (WashingMachine) tempProduct;
                 wm.setCapacityKg(tempCapacityKg);
                 tempProduct = wm;
             }
             else if(choice==4) {
-            	System.out.print("Please enter a new door design: ");
-    			tempHasDryer=scanner.nextBoolean();
+    			tempHasDryer=getBooleanInput("Enter built-in dryer ",BOOLEAN_REGEX,scanner);
     			WashingMachine wm = (WashingMachine) tempProduct;
                 wm.setHasDryer(tempHasDryer);
                 tempProduct = wm;
             }
             else if(choice==5) {
-            	System.out.print("Please enter a new door design: ");
-    			tempNoiceLevel=scanner.nextLine();
+    			tempNoiceLevel=getStringInput("Enter noice level: ",ALPHA_NUM_REGEX,scanner);
     			WashingMachine wm = (WashingMachine) tempProduct;
                 wm.setNoiceLevel(tempNoiceLevel);
                 tempProduct = wm;
+            }else if(choice==0) {
+            	System.out.println("Back to product menu....");
             }
-		}while(choice!=6);
+		}while(choice!=0);
 		products.set(indexNumber,tempProduct);
 	}
 	public static Product updateSuperValue(int choice,Product product,Scanner scanner) {
 		String tempName;
 		Double tempPrice;
 		if(choice==1) {
-            System.out.print("Please enter a new name: ");
-			tempName=scanner.nextLine();
+			tempName=getStringInput("Enter name: ",ALPHA_NUM_REGEX,scanner);
 			product.setProductName(tempName);
 		}
 		else if(choice==2) {
-			System.out.print("Please enter a new price: ");
-			tempPrice=scanner.nextDouble();
+			tempPrice=getDoubleInput("Enter price: ",DOUBLE_REGEX,scanner);
 			product.setProductPrice(tempPrice);
 		}
 		return product;
@@ -714,13 +633,7 @@ public class StockManagement{
 		}
 		else {
 			displayProducts(products);
-            System.out.print("Please enter item number to delete: ");
-            while(!scanner.hasNextInt()) {
-                System.out.print("Please enter valid item number to delete: ");
-                System.out.print("Please reenter item number to delete: ");
-                scanner.next();
-            }
-            itemNumber=scanner.nextInt();
+            itemNumber=getIntInput("Please enter item number to delete: ",INTEGER_REGEX,scanner);
             int value=checkItemNumber(itemNumber,products);
             if(value!=-1) {
             	products.remove(value);
@@ -743,13 +656,70 @@ public class StockManagement{
             choice = displayMenu(scanner);
             if(choice!=0) {
             	executeMethod(choice, products, scanner);
-
             }
         } while (choice != 0);
-    	
-        System.out.println("Dear user.....thank you for using our program");
+        System.out.println("Dear user.....thank you for using our prorgam");
         System.out.println("Have a nice day ^-^");
         scanner.close(); // Close the scanner
-
     }
+    
+    public static String getStringInput(String prompt, String regex, Scanner scanner) {
+        String input;
+
+        do {
+            System.out.print(prompt);
+            input = scanner.nextLine().trim();
+
+            if (!input.matches(regex)) {
+                System.out.println("Input must contain only alphanumeric characters.");
+            }
+        } while (!input.matches(regex));
+
+        return input;
+    }
+    public static int getIntInput(String prompt, String regex,Scanner scanner) {
+        String input;
+
+        do {
+            System.out.print(prompt);
+            input = scanner.nextLine().trim();
+
+            if (!input.matches(regex)) {
+                System.out.println("Input must be an integer.");
+            }
+        } while (!input.matches(regex));
+
+        return Integer.parseInt(input);
+    }
+
+    public static double getDoubleInput(String prompt, String regex,Scanner scanner) {
+        String input;
+        do {
+            System.out.print(prompt);
+            input = scanner.nextLine().trim();
+
+            if (!input.matches(regex)) {
+                System.out.println("Input must be a double.");
+            }
+        } while (!input.matches(regex));
+
+        return Double.parseDouble(input);
+    }
+
+    public static boolean getBooleanInput(String prompt, String regex,Scanner scanner) {
+        String input;
+
+        do {
+            System.out.print(prompt);
+            input = scanner.nextLine().trim();
+
+            if (!input.matches(regex)) {
+                System.out.println("Input must be 'true' or 'false'.");
+            }
+        } while (!input.matches(regex));
+
+        return Boolean.parseBoolean(input);
+    }
+    
+    
 }

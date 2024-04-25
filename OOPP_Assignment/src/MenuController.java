@@ -25,6 +25,9 @@ public class MenuController{
 	    this.user.setUserID();
 
 	}
+	public String getUserID() {
+		return user.getUserID();
+	}
 	public void switchScene(ActionEvent e, String fxmlFile) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
 		root  = loader.load();
@@ -57,7 +60,7 @@ public class MenuController{
 	public void handleMenuExitButton(ActionEvent e) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Exit");
-		alert.setHeaderText(user.getName()+" ID: "+user.getUserID()+", you are about to exit!");
+		alert.setHeaderText("Name: "+ user.getName()+" ID: "+user.getUserID()+", you are about to exit!");
 		alert.setContentText("Are you sure you want to exit");
 		if(alert.showAndWait().get()==ButtonType.OK) {
 		stage =	(Stage)((Node)e.getSource()).getScene().getWindow();

@@ -96,12 +96,13 @@ public class DeleteProductController {
 			fail.showAndWait();
 		}
 		else {
+
 			int loc=productLoc;
 			SharedList pal = new SharedList();			
 			pal.deleteProduct(loc);
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Product Deleting");
-			alert.setHeaderText("Dear user...Successfully Delete the product");
+			alert.setHeaderText("Successfully deleted the product");
 			if(alert.showAndWait().get()==ButtonType.OK) {
 				switchScene(event,"ViewUI.fxml");
 			}	

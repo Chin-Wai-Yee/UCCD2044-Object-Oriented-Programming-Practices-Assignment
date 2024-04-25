@@ -11,8 +11,8 @@ public class StockManagement {
     private static int productTotalNumber = 0; //increase by 1 when add 1 products
     private static int productMaxNumber;
 
+    private static UserInfo user= new UserInfo("","");
     private static String name;
-
     public static int getMaxProducts(Scanner scanner) {
     	System.out.println("======================================================");
     	System.out.println("||                                                  ||");
@@ -24,14 +24,16 @@ public class StockManagement {
 		String formattedDate = currentDate.format(formatter);
 		System.out.println("Current Date and Time: " + formattedDate);
         int maxProducts;
-        name=getStringInput("Enter your name :",ALPHA_NUM_REGEX,scanner);
+        name = getStringInput("Enter your name :",ALPHA_NUM_REGEX,scanner);
+        user.setName(name);
+        user.setUserID();
         do {
         	maxProducts=getIntInput("Enter the maximum number of products: ",INTEGER_REGEX,scanner);
             if (maxProducts <= 0) {
                 System.out.println("Please enter a positive value.");
             }
         } while (maxProducts <= 0);
-        System.out.println("Nice to meet you..." + name);        return maxProducts;
+        System.out.println("Nice to meet you..." + user.getUserID());        return maxProducts;
     }
     
     public static int displayProducts(ArrayList<Product> products, Scanner scanner) {
@@ -236,7 +238,7 @@ public class StockManagement {
         	itemNumber = getIntInput("Enter item number: ",INTEGER_REGEX,scanner);
             value=checkItemNumber(itemNumber,products);
             if(value!=-1) {
-                System.out.println("dear user...item number found in the system..");
+                System.out.println("Dear user "+user.getUserID()+", item number found in the system..");
             }
         }while(value!=-1);
         // Create Refrigerator object and store it in the array
@@ -258,7 +260,7 @@ public class StockManagement {
         	itemNumber = getIntInput("Enter item number: ",INTEGER_REGEX,scanner);
             value=checkItemNumber(itemNumber,products);
             if(value!=-1) {
-                System.out.print("dear user...item number found in the system..");
+                System.out.print("Dear user "+user.getUserID()+"item number found in the system..");
             }
         }while(value!=-1);
         // Create TV object and store it in the array
@@ -280,7 +282,7 @@ public class StockManagement {
         	itemNumber = getIntInput("Enter item number: ",INTEGER_REGEX,scanner);
             value=checkItemNumber(itemNumber,products);
             if(value!=-1) {
-                System.out.print("dear user...item number found in the system..");
+                System.out.print("Dear user "+user.getUserID()+", item number found in the system..");
             }
         }while(value!=-1);
         // Create TV object and store it in the array
@@ -302,7 +304,7 @@ public class StockManagement {
         	itemNumber = getIntInput("Enter item number: ",INTEGER_REGEX,scanner);
             value=checkItemNumber(itemNumber,products);
             if(value!=-1) {
-                System.out.print("dear user...item number found in the system..");
+                System.out.print("Dear user "+user.getUserID()+", item number found in the system..");
             }
         }while(value!=-1);
         // Create WashingMachine object and store it in the array
@@ -622,7 +624,7 @@ public class StockManagement {
                 productTotalNumber--;
             }
             else {
-                System.out.print("dear user...item number not found in the system..");
+                System.out.print("Dear user"+user.getUserID()+", item number not found in the system..");
             }
 		}
 	};	
@@ -639,7 +641,7 @@ public class StockManagement {
             	executeMethod(choice, products, scanner);
             }
         } while (choice != 0);
-        System.out.println("Dear user.....thank you for using our prorgam");
+        System.out.println("Dear user "+ user.getUserID()+ ",thank you for using our prorgam");
         System.out.println("Have a nice day ^-^");
         scanner.close(); // Close the scanner
     }

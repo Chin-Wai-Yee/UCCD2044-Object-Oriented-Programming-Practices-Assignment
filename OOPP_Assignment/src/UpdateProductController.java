@@ -181,7 +181,7 @@ public class UpdateProductController {
 			pal.updateProduct(loc, temp);
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Product Updating");
-			alert.setHeaderText("dear user...Successfully update the product");
+			alert.setHeaderText("Successfully updated the product");
 			if(alert.showAndWait().get()==ButtonType.OK) {
 				switchScene(event,"ViewUI.fxml");
 			}	

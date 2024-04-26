@@ -232,7 +232,7 @@ public class StockManagement {
         String doorDesign = getStringInput("Enter door design: ",ALPHA_NUM_REGEX,scanner);
         String color = getStringInput("Enter color: ",ALPHA_NUM_REGEX,scanner);
         double capacity = getDoubleInput("Enter capacity: ",DOUBLE_REGEX,scanner);
-        //int quantity=getIntInput("Enter quantity available in stock: ",INTEGER_REGEX,scanner);
+        int quantity=getIntInput("Enter quantity available in stock: ",INTEGER_REGEX,scanner);
         double price = getDoubleInput("Enter price: ",DOUBLE_REGEX,scanner);
         do {
         	itemNumber = getIntInput("Enter item number: ",INTEGER_REGEX,scanner);
@@ -243,7 +243,7 @@ public class StockManagement {
         }while(value!=-1);
         // Create Refrigerator object and store it in the array
         //String productName, double productPrice, int productQuantity, int productItemNumber, boolean productStatus, String doorDesign, String color, double capacity
-        products.add(new Refrigerator(name,price, 0, itemNumber,true, doorDesign, color, capacity));
+        products.add(new Refrigerator(name,price, quantity, itemNumber,true, doorDesign, color, capacity));
         productTotalNumber++;
         System.out.println("Refrigerator added successfully.");
     }
@@ -254,7 +254,7 @@ public class StockManagement {
         String screenType = getStringInput("Enter screen type: ",ALPHA_NUM_REGEX,scanner);
         int resolution = getIntInput("Enter resolution: ",INTEGER_REGEX,scanner);
         int displaySize = getIntInput("Enter display size: ",INTEGER_REGEX,scanner);
-      //int quantity=getIntInput("Enter quantity available in stock: ",INTEGER_REGEX,scanner);
+        int quantity=getIntInput("Enter quantity available in stock: ",INTEGER_REGEX,scanner);
         double price = getDoubleInput("Enter price: ",DOUBLE_REGEX,scanner);
         do {
         	itemNumber = getIntInput("Enter item number: ",INTEGER_REGEX,scanner);
@@ -265,7 +265,7 @@ public class StockManagement {
         }while(value!=-1);
         // Create TV object and store it in the array
         //String productName, double productPrice, int productQuantity, int productItemNumber, boolean productStatus, String screenType, int resolution, int displaySize
-        products.add(new TV(name, price, 0, itemNumber, true, screenType, resolution, displaySize));
+        products.add(new TV(name, price, quantity, itemNumber, true, screenType, resolution, displaySize));
         productTotalNumber++;
         System.out.println("TV added successfully.");
     }
@@ -276,7 +276,7 @@ public class StockManagement {
         String glassDoor = getStringInput("Enter glass door design: ",ALPHA_NUM_REGEX,scanner);
         boolean hasConvection = getBooleanInput("Enter built-in convection: ",BOOLEAN_REGEX,scanner);
         boolean hasTimer = getBooleanInput("Enter built-in timer: ",BOOLEAN_REGEX,scanner);
-      //int quantity=getIntInput("Enter quantity available in stock: ",INTEGER_REGEX,scanner);
+        int quantity=getIntInput("Enter quantity available in stock: ",INTEGER_REGEX,scanner);
         double price = getDoubleInput("Enter price: ",DOUBLE_REGEX,scanner);
         do {
         	itemNumber = getIntInput("Enter item number: ",INTEGER_REGEX,scanner);
@@ -287,7 +287,7 @@ public class StockManagement {
         }while(value!=-1);
         // Create TV object and store it in the array
         //	String productName, double productPrice, int productQuantity, int productItemNumber,boolean productStatus,String glassDoorDesign,boolean hasConvection,boolean hasTimer)
-        products.add(new Oven(name, price, 0, itemNumber, true, glassDoor, hasConvection, hasTimer));
+        products.add(new Oven(name, price, quantity, itemNumber, true, glassDoor, hasConvection, hasTimer));
         productTotalNumber++;
         System.out.println("TV added successfully.");
     }
@@ -298,7 +298,7 @@ public class StockManagement {
         int capacityKg = getIntInput("Enter capacity(KG): ",INTEGER_REGEX,scanner);
         boolean hasDryer=getBooleanInput("Enter built-in dryer ",BOOLEAN_REGEX,scanner);
         String noiceLevel = getStringInput("Enter noice level: ",ALPHA_NUM_REGEX,scanner);
-      //int quantity=getIntInput("Enter quantity available in stock: ",INTEGER_REGEX,scanner);
+        int quantity=getIntInput("Enter quantity available in stock: ",INTEGER_REGEX,scanner);
         double price = getDoubleInput("Enter price: ",DOUBLE_REGEX,scanner);
         do {
         	itemNumber = getIntInput("Enter item number: ",INTEGER_REGEX,scanner);
@@ -309,7 +309,7 @@ public class StockManagement {
         }while(value!=-1);
         // Create WashingMachine object and store it in the array
         // String productName, double productPrice, int productQuantity, int productItemNumber,boolean productStatus,int capacityKg,boolean hasDryer,String noiceLevel
-        products.add(new WashingMachine(name, price, 0, itemNumber, true, capacityKg,hasDryer,noiceLevel));
+        products.add(new WashingMachine(name, price, quantity, itemNumber, true, capacityKg,hasDryer,noiceLevel));
         productTotalNumber++;
         System.out.println("TV added successfully.");
     }

@@ -69,11 +69,16 @@ public class StockManagement {
             while (!scanner.hasNextInt()) {
                 System.out.println("Please enter a valid menu option.");
 
-                System.out.print("Please enter a menu option: ");
-
-                scanner.next();
+                scanner.nextLine();
             }
-            choice = scanner.nextInt();
+
+            String user_input = scanner.nextLine();
+            try {
+                choice = Integer.parseInt(user_input);
+            } catch (NumberFormatException e) {
+                choice = -1;
+            }
+
             if (choice < 0 || choice > 5) {
                 System.out.println("Please enter a valid menu option.");
             }
@@ -375,7 +380,6 @@ public class StockManagement {
 	//update the products
 	public static void updateProduct(ArrayList<Product> products, Scanner scanner) {
 		int itemNumber;
-		boolean valid=false;
 		if(products.size() <= 0) {
 			System.out.println("No product to update");
 		}
@@ -547,12 +551,13 @@ public class StockManagement {
 			System.out.println("5. Product Noice Level");
 			System.out.println("0. Exit");
             System.out.println("Please enter a menu option to update.");
-			while (!scanner.hasNextInt()) {
+
+            String user_input = scanner.nextLine();
+            while (!user_input.matches("^\\d{1}$")) {
                 System.out.println("Please enter a valid menu option.");
-                System.out.print("Please enter a menu option: ");
-                scanner.next();
+                user_input = scanner.nextLine();
             }
-            choice = scanner.nextInt();
+            choice = Integer.parseInt(user_input);
             if (choice < 0 || choice > 6) {
                 System.out.println("Please enter a valid menu option.");
             }

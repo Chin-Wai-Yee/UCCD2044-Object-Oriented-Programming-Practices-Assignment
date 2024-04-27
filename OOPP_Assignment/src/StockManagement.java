@@ -106,7 +106,7 @@ public class StockManagement {
         	System.out.println("No product added in this system");
         	return;
         }
-        System.out.print("Enter the quantity to deduct: ");
+        choice -= 1;
         int quantityToDeduct;
         do {
             quantityToDeduct = getIntInput("Enter the quantity to deduct: ", INTEGER_REGEX, scanner);
@@ -114,7 +114,7 @@ public class StockManagement {
                 System.out.println("Please enter a valid quantity.");
             }
         } while (quantityToDeduct <= 0 || quantityToDeduct > products.get(choice).getProductQuantity());
-        choice -= 1;
+        
         products.get(choice)
                 .setProductQuantity(products.get(choice).getProductQuantity() - quantityToDeduct);
         System.out.println("Stock deducted successfully.");
@@ -414,7 +414,7 @@ public class StockManagement {
 			System.out.println("2. Product Price");
 			System.out.println("3. Product Door Design");
 			System.out.println("4. Product color");
-			System.out.println("5. Product capacity(kg)");
+			System.out.println("5. Product capacity(Litres)");
 			System.out.println("0. Exit");
             choice = getIntInput("Please enter a menu option to update:",INTEGER_REGEX,scanner);
             if (choice < 0 || choice > 6) {
@@ -432,7 +432,7 @@ public class StockManagement {
             else if(choice==4) {
     			tempColor=getStringInput("Enter color: ",ALPHA_NUM_REGEX,scanner);
     			Refrigerator refrigerator = (Refrigerator) tempProduct;
-                refrigerator.setDoorDesign(tempColor);
+                refrigerator.setColor(tempColor);
                 tempProduct = refrigerator;
             }
             else if(choice==5) {
@@ -523,7 +523,7 @@ public class StockManagement {
                 tempProduct = tv;
             }
             else if(choice==5) {
-            	tempDisplaySize=getIntInput("Enter resolution: ",INTEGER_REGEX,scanner);
+            	tempDisplaySize=getIntInput("Enter display size: ",INTEGER_REGEX,scanner);
             	TV tv = (TV) tempProduct;
                 tv.setDisplaySize(tempDisplaySize);
                 tempProduct = tv;
@@ -566,7 +566,7 @@ public class StockManagement {
                 tempProduct = wm;
             }
             else if(choice==4) {
-    			tempHasDryer=getBooleanInput("Enter built-in dryer ",BOOLEAN_REGEX,scanner);
+    			tempHasDryer=getBooleanInput("Enter built-in dryer: ",BOOLEAN_REGEX,scanner);
     			WashingMachine wm = (WashingMachine) tempProduct;
                 wm.setHasDryer(tempHasDryer);
                 tempProduct = wm;

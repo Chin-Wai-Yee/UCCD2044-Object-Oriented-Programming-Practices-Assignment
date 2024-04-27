@@ -300,7 +300,7 @@ public class StockManagement {
         	itemNumber = getIntInput("Enter item number: ",INTEGER_REGEX,scanner);
             value=checkItemNumber(itemNumber,products);
             if(value!=-1) {
-                System.out.print("Dear user "+user.getUserID()+", item number found in the system..");
+                System.out.print("Dear user "+user.getUserID()+", item number found in the system..\n");
             }
         }while(value!=-1);
         // Create WashingMachine object and store it in the array

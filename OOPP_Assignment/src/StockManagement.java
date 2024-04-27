@@ -156,23 +156,27 @@ public class StockManagement {
     	double TVIntValue  = 0;
     	double totalValue=0;
 		for(Product product:products) {
-			if (product instanceof Oven) {
+			if (product instanceof Oven && product.getProductStatus()) {
 				ovenNum+=product.getProductQuantity();
 				ovenIntValue += product.getTotalInventoryValue();
+				totalValue += product.getTotalInventoryValue();
 			}
-			if (product instanceof WashingMachine) {
+			if (product instanceof WashingMachine && product.getProductStatus()) {
 				washNum+=product.getProductQuantity();
 				washIntValue += product.getTotalInventoryValue();
+				totalValue += product.getTotalInventoryValue();
 			}
-			if (product instanceof Refrigerator) {
+			if (product instanceof Refrigerator && product.getProductStatus()) {
 				fridgeNum+=product.getProductQuantity();
 				fridgeIntValue += product.getTotalInventoryValue();
+				totalValue += product.getTotalInventoryValue();
 			}
-			if (product instanceof TV) {
+			if (product instanceof TV && product.getProductStatus()) {
 				TVNum+=product.getProductQuantity();
 				TVIntValue += product.getTotalInventoryValue();
+				totalValue += product.getTotalInventoryValue();
 			}
-			totalValue += product.getTotalInventoryValue();
+
 			
 		}
         System.out.println("Product\t\tQuantity\tValue\t\tPercentage of Inventory Value");
@@ -538,13 +542,7 @@ public class StockManagement {
 			System.out.println("4. Product Built-in Dryer");
 			System.out.println("5. Product Noice Level");
 			System.out.println("0. Exit");
-            System.out.println("Please enter a menu option to update.");
-			while (!scanner.hasNextInt()) {
-                System.out.println("Please enter a valid menu option.");
-                System.out.print("Please enter a menu option: ");
-                scanner.next();
-            }
-            choice = scanner.nextInt();
+            choice=getIntInput("Please enter a menu option to update: ",INTEGER_REGEX,scanner);
             if (choice < 0 || choice > 6) {
                 System.out.println("Please enter a valid menu option.");
             }

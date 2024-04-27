@@ -94,9 +94,9 @@ public class StockManagement {
 
     public static void deductStock(ArrayList<Product> products, Scanner scanner) {
         int choice = displayProducts(products, scanner);
-        if (choice ==  -1) {
-        	System.out.println("No product added in this system");
-        	return;
+        if (choice == -1) {
+            System.out.println("No product added in this system");
+            return;
         }
         choice -= 1;
         int quantityToDeduct;
@@ -371,7 +371,6 @@ public class StockManagement {
 	//update the products
 	public static void updateProduct(ArrayList<Product> products, Scanner scanner) {
 		int itemNumber;
-		boolean valid=false;
 		if(products.size() <= 0) {
 			System.out.println("No product to update");
 		}

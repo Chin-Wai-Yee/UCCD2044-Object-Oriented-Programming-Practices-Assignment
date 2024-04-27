@@ -102,10 +102,11 @@ public class StockManagement {
 
     public static void deductStock(ArrayList<Product> products, Scanner scanner) {
         int choice = displayProducts(products, scanner);
-        if (choice ==  -1) {
-        	System.out.println("No product added in this system");
-        	return;
+        if (choice == -1) {
+            System.out.println("No product added in this system");
+            return;
         }
+        choice -= 1;
         System.out.print("Enter the quantity to deduct: ");
         int quantityToDeduct;
         do {
@@ -114,7 +115,6 @@ public class StockManagement {
                 System.out.println("Please enter a valid quantity.");
             }
         } while (quantityToDeduct <= 0 || quantityToDeduct > products.get(choice).getProductQuantity());
-        choice -= 1;
         products.get(choice)
                 .setProductQuantity(products.get(choice).getProductQuantity() - quantityToDeduct);
         System.out.println("Stock deducted successfully.");

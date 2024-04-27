@@ -1,7 +1,7 @@
-import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Scanner;
 public class StockManagement {
 	public static final String ALPHA_NUM_REGEX = "^[a-zA-Z0-9\\s]*$";
     private static final String INTEGER_REGEX = "^\\d+$";

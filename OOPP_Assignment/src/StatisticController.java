@@ -90,7 +90,7 @@ public class StatisticController{
 		chartPane.getChildren().clear();
 		setValues(products);
 		int total = ovenNum+washNum+fridgeNum+TVNum;
-		double totalValue = ovenIntValue+washIntValue+TVIntValue+fridgeIntValue;
+
 		if(products.isEmpty()) {
 			
 	        Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -117,8 +117,7 @@ public class StatisticController{
         list.forEach(data->
 		data.nameProperty().bind(
                 Bindings.concat(
-                        data.getName(), " ", data.pieValueProperty(), " units", " ",String.format("%.2f", data.pieValueProperty().getValue()/total*100),"%"
-                )
+                        data.getName(), " ", data.pieValueProperty(), " units")
         )
         );
 		PieChart quantityChart= new PieChart(list);
@@ -137,11 +136,11 @@ public class StatisticController{
 			list.forEach(data ->
 	        data.nameProperty().bind(
 	                Bindings.concat(
-	                        data.getName(), " RM ", data.pieValueProperty(), " ",String.format("%.2f", data.pieValueProperty().getValue()/totalValue*100),"%"
+	                        data.getName(), " RM ", String.format("%.2f", data.pieValueProperty().getValue())
 	                )
 	        )
   
-	);
+	);	
 			PieChart valueChart= new PieChart(list);
 	        valueChart.setTitle("PieChart of Inventory Value");
 			chartPane.getChildren().add(valueChart);

@@ -66,18 +66,8 @@ public class StockManagement {
             System.out.println("5. Show statistic");
             System.out.println("0. Exit");
             System.out.print("Please enter a menu option: ");
-            while (!scanner.hasNextInt()) {
-                System.out.println("Please enter a valid menu option.");
 
-                scanner.nextLine();
-            }
-
-            String user_input = scanner.nextLine();
-            try {
-                choice = Integer.parseInt(user_input);
-            } catch (NumberFormatException e) {
-                choice = -1;
-            }
+            choice = getIntInput("Please enter a valid menu option: ", INTEGER_REGEX, scanner);
 
             if (choice < 0 || choice > 5) {
                 System.out.println("Please enter a valid menu option.");

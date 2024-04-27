@@ -10,9 +10,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -72,6 +74,8 @@ public class DeductStockController {
     @FXML
     void backToMenu(ActionEvent event) throws IOException {
         switchScene(event, "MenuUI.fxml");
+		stage.setTitle("Stock Management System");
+        
     }
 
     @FXML

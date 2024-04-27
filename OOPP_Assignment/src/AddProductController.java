@@ -97,6 +97,7 @@ public class AddProductController {
 	@FXML
 	void handleBackMenuButton(ActionEvent e) throws IOException {
 		switchScene(e,"ViewUI.fxml");
+		stage.setTitle("View Products");
 	}
 
 	@FXML

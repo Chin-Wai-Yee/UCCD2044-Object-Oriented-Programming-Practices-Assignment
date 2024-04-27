@@ -85,6 +85,7 @@ public class DeleteProductController {
     @FXML
     void handleBackMenuButton(ActionEvent event) throws IOException {
     	switchScene(event,"ViewUI.fxml");
+		stage.setTitle("View Products");
     }
     @FXML
     void handleConfirmEvent(ActionEvent event) throws IOException {
@@ -105,6 +106,7 @@ public class DeleteProductController {
 			alert.setHeaderText("Successfully deleted the product");
 			if(alert.showAndWait().get()==ButtonType.OK) {
 				switchScene(event,"ViewUI.fxml");
+				stage.setTitle("View Products");
 			}	
 		}
     }
@@ -137,7 +139,11 @@ public class DeleteProductController {
     	int loc=pal.checkItemNumber(itemNumber);
     	productLoc=loc; //update the product location
     	if(loc==-1) {
-    		//alert the user
+    		Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Unknown product");
+			alert.setHeaderText("no product with item number " + itemNumber + " found in this system");
+			alert.showAndWait();
+			return;
     	}
     	else {
     		Product temp=pal.getProduct(loc);

@@ -19,6 +19,7 @@ public class StockManagement {
     	System.out.println("||      Welcome to snow stock management system     ||");
     	System.out.println("||                                                  ||");
     	System.out.println("======================================================");
+    	System.out.println("Group Members: Chin Wai Yee, Liew Zheng Xian, Ng Yong Shen, Tey Hua Wang");
     	LocalDateTime currentDate = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 		String formattedDate = currentDate.format(formatter);

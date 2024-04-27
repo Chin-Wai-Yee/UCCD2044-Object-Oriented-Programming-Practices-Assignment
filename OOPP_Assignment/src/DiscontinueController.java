@@ -72,6 +72,7 @@ public class DiscontinueController {
     @FXML
     void backToMenu(ActionEvent event) throws IOException {
         switchScene(event, "MenuUI.fxml");
+        stage.setTitle("Stock Management System");
     }
 
     @FXML

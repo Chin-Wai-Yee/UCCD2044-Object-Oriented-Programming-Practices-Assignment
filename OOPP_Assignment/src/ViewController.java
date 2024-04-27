@@ -56,19 +56,26 @@ public class ViewController{
 	@FXML
 	public void handleAddProductButton(ActionEvent e) throws IOException{
 		switchScene(e,"AddProductUI.fxml");
+		stage.setTitle("Add Products");
 
 	}
 	@FXML
 	public void handleUpdateProductButton(ActionEvent e) throws IOException {
 		switchScene(e,"UpdateProductUI.fxml");
+		stage.setTitle("Update Products");
+
 	}
 	@FXML
 	public void handleDeleteProductButton(ActionEvent e) throws IOException {
 		switchScene(e,"DeleteProductUI.fxml");
+		stage.setTitle("Delete Products");
+
 	}
 	@FXML
 	public void handleBackMenuButton(ActionEvent e) throws IOException {
 		switchScene(e,"MenuUI.fxml");
+		stage.setTitle("Stock Management System");
+
 	}
 	
 	public void initialize() {

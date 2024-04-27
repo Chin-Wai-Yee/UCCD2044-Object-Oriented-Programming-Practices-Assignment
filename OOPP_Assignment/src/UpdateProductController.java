@@ -103,6 +103,7 @@ public class UpdateProductController {
 	@FXML
 	void handleBackMenuButton(ActionEvent event) throws IOException {
 		switchScene(event,"ViewUI.fxml");
+		stage.setTitle("View Products");
 	}
 
 	@FXML
@@ -130,7 +131,7 @@ public class UpdateProductController {
 				temp.setProductName(textField2.getText());
 			}
 			if(!textField3.getText().isEmpty()) {
-				temp.setProductName(textField3.getText());
+				temp.setProductPrice(Double.parseDouble(textField3.getText()));
 			}
 			
 			if(temp instanceof Refrigerator) {
@@ -184,6 +185,7 @@ public class UpdateProductController {
 			alert.setHeaderText("Successfully updated the product");
 			if(alert.showAndWait().get()==ButtonType.OK) {
 				switchScene(event,"ViewUI.fxml");
+				stage.setTitle("View Products");
 			}	
 		}catch(NumberFormatException e) {
     		// Handle the case when a number format exception occurs
